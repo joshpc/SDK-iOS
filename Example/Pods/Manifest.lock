@@ -1,0 +1,20 @@
+PODS:
+  - JSONJoy (0.1.9)
+  - Recast.AI (0.1.0)
+  - SwiftHTTP (1.0.4)
+
+DEPENDENCIES:
+  - JSONJoy
+  - Recast.AI (from `../`)
+  - SwiftHTTP
+
+EXTERNAL SOURCES:
+  Recast.AI:
+    :path: ../
+
+SPEC CHECKSUMS:
+  JSONJoy: 5faaa5ef59e9ac726a29bb09a7282ebbff1862c5
+  Recast.AI: 82fec2a46f45705667c2fe9a3a2bd35092cf8d7d
+  SwiftHTTP: 7e084af3bf628b17589c7b61a9df8750947a9813
+
+COCOAPODS: 0.39.0
