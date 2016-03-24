@@ -6,11 +6,11 @@ xcodeproj 'Recast.AI.xcodeproj'
 target 'Recast.AI_Example', :exclusive => true do
   pod 'Recast.AI', :path => '../'
   pod 'SwiftHTTP'
-  pod 'JSONJoy'
+  pod 'JSONJoy-Swift'
 end
 
 target 'Recast.AI_Tests', :exclusive => true do
   pod 'Recast.AI', :path => '../'
   pod 'SwiftHTTP'
-  pod 'JSONJoy'
+  pod 'JSONJoy-Swift'
 end
