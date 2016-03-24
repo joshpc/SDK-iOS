@@ -9,7 +9,7 @@
 import Foundation
 import JSONJoy
 
-class Response
+public class Response
 {
     var source : String?
     var intents : [String]?

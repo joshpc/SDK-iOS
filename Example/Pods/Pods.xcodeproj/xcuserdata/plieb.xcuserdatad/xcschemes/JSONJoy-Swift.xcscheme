@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3E47201D09EFC0F1AEEFA99F'
+               BlueprintIdentifier = '10B0F7ABCFCDA4B8A61FB55A'
                BlueprintName = 'JSONJoy-Swift'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'JSONJoy.framework'>

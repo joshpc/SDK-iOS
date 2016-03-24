@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol HandlerRecastRequestProtocol : class
+public protocol HandlerRecastRequestProtocol : class
 {
     func recastRequestDone(response : Response)
     

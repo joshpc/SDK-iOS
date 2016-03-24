@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F095A59542FB667F145FA27E'
+               BlueprintIdentifier = 'A12F2258CFFEEA3780C4BB19'
                BlueprintName = 'Pods-RecastAI_Tests'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_RecastAI_Tests.framework'>
