@@ -1,0 +1,6 @@
+framework module Pods_RecastAI_Tests {
+  umbrella header "Pods-RecastAI_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
