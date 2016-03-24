@@ -1,6 +1,0 @@
-framework module Recast_AI {
-  umbrella header "Recast.AI-umbrella.h"
-
-  export *
-  module * { export * }
-}

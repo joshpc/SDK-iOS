@@ -1,6 +1,0 @@
-framework module Pods_Recast_AI_Example {
-  umbrella header "Pods-Recast.AI_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}
