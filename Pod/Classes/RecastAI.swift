@@ -23,7 +23,7 @@ public class RecastAPI
      Method called when the request failed
      
      - parameter token: your app token
-     - parameter handlerRecastRequestProtocol: class thant handles the protocol
+     - parameter handlerRecastRequestProtocol: class that handles the protocol
      
      - returns: void
      */
