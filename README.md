@@ -179,6 +179,7 @@ For more details regarding the API please visit [man.recast.ai](https://man.reca
 ## Author
 
 PE Lieb, pierre-edouard.lieb@recast.ai, [@pedward_lieb](https://twitter.com/pedward_lieb)
+
 You can follow us on Twitter at [@recastai](https://twitter.com/recastai) for updates and releases.
 
 ## License
