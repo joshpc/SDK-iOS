@@ -9,6 +9,11 @@
 import Foundation
 import JSONJoy
 
+/**
+ Class Sentence
+ 
+ Sentence sent to through the request
+ */
 public class Sentence
 {
     public var source : String?

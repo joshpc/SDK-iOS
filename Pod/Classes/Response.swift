@@ -9,6 +9,11 @@
 import Foundation
 import JSONJoy
 
+/**
+ Class Response
+ 
+Return from the Recast API call
+ */
 public class Response
 {
     public var source : String?

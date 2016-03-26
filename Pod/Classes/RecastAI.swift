@@ -10,18 +10,36 @@ import Foundation
 import SwiftHTTP
 import JSONJoy
 
+/**
+ RecastAPI class handling request to the API
+ */
 public class RecastAPI
 {
     private let url : String = "https://api.recast.ai/request"
     private let token : String
     private weak var delegate : HandlerRecastRequestProtocol?
     
+    /**
+     Method called when the request failed
+     
+     - parameter token: your app token
+     - parameter handlerRecastRequestProtocol: class thant handles the protocol
+     
+     - returns: void
+     */
     public init (token : String, handlerRecastRequestProtocol : HandlerRecastRequestProtocol)
     {
         self.token = token
         self.delegate = handlerRecastRequestProtocol
     }
     
+    /**
+     Make a request to Recast API
+     
+     - parameter request: sentence to send to Recast API
+     
+     - returns: void
+     */
     public func makeRequest(request : String)
     {
         do

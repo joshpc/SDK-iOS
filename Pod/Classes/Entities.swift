@@ -9,8 +9,35 @@
 import Foundation
 import JSONJoy
 
-// MARK: Entities
-// This is the list of the current entities we detect, with examples and formatted information for each one.
+/**
+ Entities class. This is the list of the current entities detected:
+- age
+- cardinal
+- color
+- datetime
+- distance
+- duration
+- email
+- ip
+- language
+- location
+- mass
+- misc
+- money
+- nationality
+- number
+- ordinal
+- organization
+- percent
+- person
+- pronoun
+- set
+- sort
+- speed
+- temperature
+- url
+- volume
+ */
 public class Entities
 {
     public var age : [Age]?
@@ -255,6 +282,16 @@ public class Entities
     }
 }
 
+/**
+ Class Age
+ 
+ Examples :	20 year old, eighteen-years-old
+ 
+ Key:
+ - value: Float, the countable
+ - unit: String, the quantifier. Can be s (seconds), min (minutes), h (hours), wk (weeks), y (years), decade (decades), century (centuries), etc.
+ - raw: The raw value extracted for the sentence
+ */
 public class Age
 {
     public var value : Float?
@@ -271,6 +308,15 @@ public class Age
     }
 }
 
+/**
+ Class Cardinal
+ 
+ Examples :	north, southeast, north-west
+ 
+ Key:
+ - deg: Float, the cardinal point bearing in degrees
+ - raw: The raw value extracted for the sentence
+ */
 public class Cardinal
 {
     public var deg : Float?
@@ -285,6 +331,15 @@ public class Cardinal
     }
 }
 
+/**
+ Class Color
+ 
+ Examples :	blue, red, orange
+ 
+ Key:
+ - hex: String, the hexadecimal value of the color
+ - raw: The raw value extracted for the sentence
+ */
 public class Color
 {
     public var hex : String?
@@ -299,6 +354,15 @@ public class Color
     }
 }
 
+/**
+ Class Datetime
+ 
+ Examples :	the next friday, today, September 7 2016
+ 
+ Key:
+ - value: Integer, the unix timestamp of the datetime
+ - raw: The raw value extracted for the sentence
+ */
 public class Datetime
 {
     public var value : Int?
@@ -313,6 +377,16 @@ public class Datetime
     }
 }
 
+/**
+ Class Distance
+ 
+ Examples :	20 meters, seven miles
+ 
+ Key:
+ - value: Float, the countable
+ - unit: String, the quantifier
+ - raw: The raw value extracted for the sentence
+ */
 public class Distance
 {
     public var value : Float?
@@ -329,6 +403,15 @@ public class Distance
     }
 }
 
+/**
+ Class Duration
+ 
+ Examples :	five days, one year
+ 
+ Key:
+ - value: Integer, the number of seconds in this span
+ - raw: The raw value extracted for the sentence
+ */
 public class Duration
 {
     public var value : Int?
@@ -343,6 +426,15 @@ public class Duration
     }
 }
 
+/**
+ Class Email
+ 
+ Examples :	hello@recast.ai, hello+devs@recast.ai
+ 
+ Key:
+ - value: String, the downcased email
+ - raw: The raw value extracted for the sentence
+ */
 public class Email
 {
     public var value : String?
@@ -357,6 +449,17 @@ public class Email
     }
 }
 
+/**
+ Class IP
+ 
+ Examples :	127.0.0.1
+ 
+ Key:
+ - formated: String, the full denomination of the ip’s location
+ - lat: Float, the latitude of the ip’s location
+ - lng: Float, the longitude of the ip’s location
+ - raw: The raw value extracted for the sentence
+ */
 public class IP
 {
     public var formated : String?
@@ -375,6 +478,15 @@ public class IP
     }
 }
 
+/**
+ Class Language
+ 
+ Examples :	French, Hindi, Russian
+ 
+ Key:
+ - code: String, the language code. Follows the ISO 639-1 standard
+ - raw: The raw value extracted for the sentence
+ */
 public class Language
 {
     public var code : String?
@@ -389,6 +501,17 @@ public class Language
     }
 }
 
+/**
+ Class Location
+ 
+ Examples :	San Francisco, Paris, France
+ 
+ Key:
+ - formated: String, the full denomination of the location
+ - lat: Float, the latitude of the location
+ - lng: Float, the longitude of the location
+ - raw: The raw value extracted for the sentence
+ */
 public class Location
 {
     public var formated : String?
@@ -407,6 +530,16 @@ public class Location
     }
 }
 
+/**
+ Class Mass
+ 
+ Examples :	45 pounds, twenty-one grams
+ 
+ Key:
+ - value: Float, the countable
+ - unit: String, the quantifier. Can be lbs (pounds), kg (kilograms), g (grams), oz (ounces), etc.
+ - raw: The raw value extracted for the sentence
+ */
 public class Mass
 {
     public var value : Float?
@@ -423,6 +556,15 @@ public class Mass
     }
 }
 
+/**
+ Class Misc
+ 
+ Examples :	World Champion, Americans
+ 
+ Key:
+ - value: String, the downcased entity extracted
+ - raw: The raw value extracted for the sentence
+ */
 public class Misc
 {
     public var value : String?
@@ -437,6 +579,16 @@ public class Misc
     }
 }
 
+/**
+ Class Money
+ 
+ Examples :	3.14 euros, eight millions dollars, $6
+ 
+ Key:
+ - value: Float, the countable
+ - unit: String, the currency. Follows the ISO 4217 standard
+ - raw: The raw value extracted for the sentence
+ */
 public class Money
 {
     public var value : Float?
@@ -453,7 +605,15 @@ public class Money
     }
 }
 
-
+/**
+ Class Nationality
+ 
+ Examples :	French, Spanish, Australian
+ 
+ Key:
+ - code: String, the country code. Follows the ISO 3166-1 alpha2 standard
+ - raw: The raw value extracted for the sentence
+ */
 public class Nationality
 {
     public var code : String?
@@ -468,6 +628,15 @@ public class Nationality
     }
 }
 
+/**
+ Class Number
+ 
+ Examples :	one thousand, 3, 9,000
+ 
+ Key:
+ - value: Integer, the number
+ - raw: The raw value extracted for the sentence
+ */
 public class Number
 {
     public var value : Int?
@@ -482,6 +651,15 @@ public class Number
     }
 }
 
+/**
+ Class Ordinal
+ 
+ Examples :	3rd, 158th, last
+ 
+ Key:
+ - value: Integer, the number behind the ordinal
+ - raw: The raw value extracted for the sentence
+ */
 public class Ordinal
 {
     public var value : Int?
@@ -496,6 +674,15 @@ public class Ordinal
     }
 }
 
+/**
+ Class Organization
+ 
+ Examples :	Lehman Brothers, NASA
+ 
+ Key:
+ - value: String, the downcased entity extracted
+ - raw: The raw value extracted for the sentence
+ */
 public class Organization
 {
     public var value : String?
@@ -510,6 +697,16 @@ public class Organization
     }
 }
 
+/**
+ Class Percent
+ 
+ Examples :	99%, two percent, one out of three
+ 
+ Key:
+ - value: Float, the countable
+ - unit: String, the quantifier. Can be % (percent), etc.
+ - raw: The raw value extracted for the sentence
+ */
 public class Percent
 {
     public var value : Float?
@@ -526,6 +723,15 @@ public class Percent
     }
 }
 
+/**
+ Class Person
+ 
+ Examples :	John Smith, David H. Doe
+ 
+ Key:
+ - value: String, the downcased entity extracted
+ - raw: The raw value extracted for the sentence
+ */
 public class Person
 {
     public var value : String?
@@ -540,6 +746,17 @@ public class Person
     }
 }
 
+/**
+ Class Pronoun
+ 
+ Examples :	I, we, it
+ 
+ Key:
+ - person: Integer, the person of the pronoun. Can be 1, 2 or 3
+ - number: String, the number of the pronoun. Can be singular or plural
+ - gender: String, the gender of the pronoun. Can be unknown, neutral, male of female
+ - raw: The raw value extracted for the sentence
+ */
 public class Pronoun
 {
     public var person : Int?
@@ -558,6 +775,16 @@ public class Pronoun
     }
 }
 
+/**
+ Class Set
+ 
+ Examples :	every Sunday, each day
+ 
+ Key:
+ - next: Integer, the timestamp representing the next occurence
+ - grain: String, the delay to repeat. Can be a combination of a number and a quantifier (day, week, month, year), just a quantifier, or even a day name.
+ - raw: The raw value extracted for the sentence
+ */
 public class Set
 {
     public var next : Int?
@@ -574,6 +801,16 @@ public class Set
     }
 }
 
+/**
+ Class Sort
+ 
+ Examples :	most valuable, best, least affordable
+ 
+ Key:
+ - value: String, the criterion to sort
+ - order: String, the order to sort (MySQL inspired)
+ - raw: The raw value extracted for the sentence
+ */
 public class Sort
 {
     public var value : String?
@@ -590,6 +827,16 @@ public class Sort
     }
 }
 
+/**
+ Class Speed
+ 
+ Examples :	7 mph, 10 km/h, seven meters per second
+ 
+ Key:
+ - value: Float, the countable
+ - unit: String, the quantifier. Can be km/h (kilometer per hour), mi/s (miles per second), kt (knots), etc.
+ - raw: The raw value extracted for the sentence
+ */
 public class Speed
 {
     public var value : Float?
@@ -606,6 +853,16 @@ public class Speed
     }
 }
 
+/**
+ Class Temperature
+ 
+ Examples :	7 mph, 10 km/h, seven meters per second
+ 
+ Key:
+ - value: Float, the countable
+ - unit: String, the quantifier. Can be C (Celsius), K (Kelvin), F (Fahrenheit), R (Rankine), etc.
+ - raw: The raw value extracted for the sentence
+ */
 public class Temperature
 {
     public var value : Float?
@@ -622,6 +879,15 @@ public class Temperature
     }
 }
 
+/**
+ Class Url
+ 
+ Examples :	https://recast.ai, localhost:9000, api.recast.ai/request
+ 
+ Key:
+ - value: String, the downcased entity extracted
+ - raw: The raw value extracted for the sentence
+ */
 public class Url
 {
     public var value : String?
@@ -636,6 +902,16 @@ public class Url
     }
 }
 
+/**
+ Class Volume
+ 
+ Examples :	30 liters, two barrels, ½ tbsp
+ 
+ Key:
+ - value: Float, the countable
+ - unit: String, the quantifier. Can be l (liters), tsp (teaspoons), pt (pints), etc.
+ - raw: The raw value extracted for the sentence
+ */
 public class Volume
 {
     public var value : Float?
