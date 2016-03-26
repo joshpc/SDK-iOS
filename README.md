@@ -2,7 +2,6 @@
 
 [logo]: https://github.com/RecastAI/SDK-ios/blob/master/Misc/logo-inline.png "Recast.AI"
 
-[![CI Status](http://img.shields.io/travis/PE Lieb/RecastAI.svg?style=flat)](https://travis-ci.org/PE Lieb/RecastAI)
 [![Version](https://img.shields.io/cocoapods/v/RecastAI.svg?style=flat)](http://cocoapods.org/pods/RecastAI)
 [![License](https://img.shields.io/cocoapods/l/RecastAI.svg?style=flat)](http://cocoapods.org/pods/RecastAI)
 [![Platform](https://img.shields.io/cocoapods/p/RecastAI.svg?style=flat)](http://cocoapods.org/pods/RecastAI)
