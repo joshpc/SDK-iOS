@@ -116,7 +116,7 @@ public class Response
     public var intents : [String]?
     public var sentences : [Sentence]?
     public var version : String?
-    public var timestamp : Int?
+    public var timestamp : String?
     public var status : Int?
 }
 ```
