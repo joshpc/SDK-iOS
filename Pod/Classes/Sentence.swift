@@ -1,22 +1,22 @@
 //
 //  Sentence.swift
-//  Pods
+//  Recast.AI Official iOS SDK
 //
-//  Created by Pierre-edouard LIEB on 24/03/2016.
+//  Created by Pierre-Edouard LIEB on 24/03/2016.
 //
-//
+//  pierre-edouard.lieb@recast.ai
 
 import Foundation
 import JSONJoy
 
-class Sentence
+public class Sentence
 {
-    var source : String?
-    var type : String?
-    var polarity : String?
-    var action : String?
-    var agent : String?
-    var entities : Entities?
+    public var source : String?
+    public var type : String?
+    public var polarity : String?
+    public var action : String?
+    public  var agent : String?
+    public var entities : Entities?
     
     init () {}
     

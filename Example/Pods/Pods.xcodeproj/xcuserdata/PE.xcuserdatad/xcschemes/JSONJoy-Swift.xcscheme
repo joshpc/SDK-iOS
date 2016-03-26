@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7677810CBA57856F218C4DDB'
-               BlueprintName = 'RecastAI'
+               BlueprintIdentifier = '12F4C6DE3A7FC18ADA4961FE'
+               BlueprintName = 'JSONJoy-Swift'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RecastAI.framework'>
+               BuildableName = 'JSONJoy.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

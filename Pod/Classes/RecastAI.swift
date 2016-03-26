@@ -1,10 +1,10 @@
 //
 //  RecastAPI.swift
-//  Pods
+//  Recast.AI Official iOS SDK
 //
-//  Created by Pierre-edouard LIEB on 17/03/2016.
+//  Created by Pierre-Edouard LIEB on 24/03/2016.
 //
-//
+//  pierre-edouard.lieb@recast.ai
 
 import Foundation
 import SwiftHTTP

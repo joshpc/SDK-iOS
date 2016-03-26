@@ -1,6 +1,6 @@
 PODS:
   - JSONJoy-Swift (2.0.0)
-  - RecastAI (0.1.0):
+  - RecastAI (0.3.0):
     - JSONJoy-Swift
     - SwiftHTTP
   - SwiftHTTP (1.0.4)
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   JSONJoy-Swift: 9dc31dfb9e551c3ae7781513a86e369598102653
-  RecastAI: 484e7303669e23a6868630e43e8c1bb86f1a8718
+  RecastAI: a60874fd73bc2a28450643bdc30390c49ed76874
   SwiftHTTP: 7e084af3bf628b17589c7b61a9df8750947a9813
 
 COCOAPODS: 0.39.0

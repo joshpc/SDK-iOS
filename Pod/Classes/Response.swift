@@ -1,22 +1,22 @@
 //
 //  Response.swift
-//  Pods
+//  Recast.AI Official iOS SDK
 //
-//  Created by Pierre-edouard LIEB on 24/03/2016.
+//  Created by Pierre-Edouard LIEB on 24/03/2016.
 //
-//
+//  pierre-edouard.lieb@recast.ai
 
 import Foundation
 import JSONJoy
 
 public class Response
 {
-    var source : String?
-    var intents : [String]?
-    var sentences : [Sentence]?
-    var version : String?
-    var timestamp : Int?
-    var status : Int?
+    public var source : String?
+    public var intents : [String]?
+    public var sentences : [Sentence]?
+    public var version : String?
+    public var timestamp : Int?
+    public var status : Int?
     
     init () {}
     
