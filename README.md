@@ -14,7 +14,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-You need to run on iOS 8.0 minimum.
+- iOS 8.0+
+- Xcode 7.2+
 
 ## Installation
 
@@ -177,7 +178,8 @@ For more details regarding the API please visit [man.recast.ai](https://man.reca
 
 ## Author
 
-PE Lieb, pierre-edouard.lieb@recast.ai
+PE Lieb, pierre-edouard.lieb@recast.ai, [@pedward_lieb](https://twitter.com/pedward_lieb)
+You can follow us on Twitter at [@recastai](https://twitter.com/recastai) for updates and releases.
 
 ## License
 
