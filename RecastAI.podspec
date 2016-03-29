@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "RecastAI"
-s.version          = "0.5.2"
+s.version          = "0.5.3"
 s.summary          = "Recast.AI Official iOS SDK in Swift"
 
 # This description is used to generate tags and improve search results.
