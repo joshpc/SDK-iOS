@@ -9,7 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Nimble.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-RecastAI_Example.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RecastAI_Tests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Quick.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,7 +47,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1E84022914C11471A36612BC0DA108D3</key>
+		<key>01C5B37CAFCAFB200E18DDC97CFEDFD0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2623DAC59A0EC9B75E6EB714FE54FEC7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4F291756D0A64BCD48E86E0FD1AB1C37</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,17 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>910B33FC33B7A5131FBA715543323439</key>
+		<key>82F899500F1AA097A0EA890F81208E74</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A40CCAFE9779D0EA1466617366BAA24F</key>
+		<key>8655DCBAF61D0C02BCC66E884F40499F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA9E51124B53EBBF098528B2CFCD545B</key>
+		<key>F9F242D9E4D914B9280C9F1AB2C6FD70</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF61C7C740C1B196A3B33F37B77DBC68</key>
 		<dict>
 			<key>primary</key>
 			<true/>

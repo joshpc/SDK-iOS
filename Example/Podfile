@@ -3,8 +3,15 @@ use_frameworks!
 
 xcodeproj 'RecastAI.xcodeproj'
 
-target 'RecastAI_Tests', :exclusive => true do
+target 'RecastAI_Example', :exclusive => true do
   pod 'RecastAI', :path => '../'
   pod 'SwiftHTTP'
   pod 'JSONJoy-Swift'
+end
+
+target 'RecastAI_Tests', :exclusive => true do
+  pod 'RecastAI', :path => '../'
+
+  pod 'Quick', '~> 0.8'
+  pod 'Nimble', '~> 3.0'
 end

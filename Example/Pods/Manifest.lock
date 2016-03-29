@@ -1,12 +1,16 @@
 PODS:
   - JSONJoy-Swift (2.0.0)
-  - RecastAI (0.3.0):
+  - Nimble (3.2.0)
+  - Quick (0.9.1)
+  - RecastAI (0.6.0):
     - JSONJoy-Swift
     - SwiftHTTP
   - SwiftHTTP (1.0.4)
 
 DEPENDENCIES:
   - JSONJoy-Swift
+  - Nimble (~> 3.0)
+  - Quick (~> 0.8)
   - RecastAI (from `../`)
   - SwiftHTTP
 
@@ -16,7 +20,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   JSONJoy-Swift: 9dc31dfb9e551c3ae7781513a86e369598102653
-  RecastAI: a60874fd73bc2a28450643bdc30390c49ed76874
+  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
+  Quick: a5221fc21788b6aeda934805e68b061839bc3165
+  RecastAI: 07e7963fc50920662a7501272ed78fb6633f40d5
   SwiftHTTP: 7e084af3bf628b17589c7b61a9df8750947a9813
 
 COCOAPODS: 0.39.0

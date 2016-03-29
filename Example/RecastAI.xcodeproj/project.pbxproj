@@ -10,49 +10,150 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>09059ACC9BFB139205F0D4C6</key>
+		<key>12F07F4C7F32C7AEB15E592B</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>name</key>
-			<string>RecastAI.podspec</string>
+			<string>README.md</string>
 			<key>path</key>
-			<string>../RecastAI.podspec</string>
+			<string>../README.md</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>21D00A1C781B08702863BBC4</key>
+		<key>18B2E400946F3D774152FFD0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>LICENSE</string>
+			<key>path</key>
+			<string>../LICENSE</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1D9D7C93D33542F8632321EB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E1B89358A83415B15791F07E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2198F13C11DD49C5C86FC6D0</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RecastAI_Example/Pods-RecastAI_Example-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>24296A69C956F58B12B21F45</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RecastAI_Tests/Pods-RecastAI_Tests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>365EE4C5E4D9E9691D9954A4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-RecastAI_Tests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-RecastAI_Tests/Pods-RecastAI_Tests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>41B2ED39359A63A00FAF893B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RecastAI_Tests/Pods-RecastAI_Tests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>447B8328DB502D83352D248D</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>DCBD8C9131029815CBFF2E4E</string>
-				<string>C19D2EACF18F8F7CAC8B3C59</string>
+				<string>E1B89358A83415B15791F07E</string>
+				<string>F9B6528E18F3A788E7CFA439</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Pods</string>
+			<string>Frameworks</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>420D5856F948DD8D82B7D931</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C15E89A5751A8D6B4C6BB110</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>607FACC71AFB9204008FA782</key>
 		<dict>
 			<key>children</key>
 			<array>
 				<string>607FACF51AFB993E008FA782</string>
+				<string>607FACD21AFB9204008FA782</string>
 				<string>607FACE81AFB9204008FA782</string>
 				<string>607FACD11AFB9204008FA782</string>
-				<string>21D00A1C781B08702863BBC4</string>
-				<string>ECE97D06E3A4BA8D496CEC0C</string>
+				<string>E74E0F1A50DE68515F90B601</string>
+				<string>447B8328DB502D83352D248D</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -112,6 +213,7 @@
 			<string></string>
 			<key>targets</key>
 			<array>
+				<string>607FACCF1AFB9204008FA782</string>
 				<string>607FACE41AFB9204008FA782</string>
 			</array>
 		</dict>
@@ -129,10 +231,94 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
+		<key>607FACCC1AFB9204008FA782</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>607FACD81AFB9204008FA782</string>
+				<string>607FACD61AFB9204008FA782</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>607FACCD1AFB9204008FA782</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1D9D7C93D33542F8632321EB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>607FACCE1AFB9204008FA782</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>607FACDB1AFB9204008FA782</string>
+				<string>607FACE01AFB9204008FA782</string>
+				<string>607FACDD1AFB9204008FA782</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>607FACCF1AFB9204008FA782</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>607FACEF1AFB9204008FA782</string>
+			<key>buildPhases</key>
+			<array>
+				<string>7C6EB2D0196AEAB7414E75CC</string>
+				<string>607FACCC1AFB9204008FA782</string>
+				<string>607FACCD1AFB9204008FA782</string>
+				<string>607FACCE1AFB9204008FA782</string>
+				<string>2198F13C11DD49C5C86FC6D0</string>
+				<string>A73AD3E38DD5DEBFFF345BDC</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>RecastAI_Example</string>
+			<key>productName</key>
+			<string>RecastAI</string>
+			<key>productReference</key>
+			<string>607FACD01AFB9204008FA782</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>607FACD01AFB9204008FA782</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>RecastAI_Example.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>607FACD11AFB9204008FA782</key>
 		<dict>
 			<key>children</key>
 			<array>
+				<string>607FACD01AFB9204008FA782</string>
 				<string>607FACE51AFB9204008FA782</string>
 			</array>
 			<key>isa</key>
@@ -141,6 +327,170 @@
 			<string>Products</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>607FACD21AFB9204008FA782</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>607FACD51AFB9204008FA782</string>
+				<string>607FACD71AFB9204008FA782</string>
+				<string>607FACD91AFB9204008FA782</string>
+				<string>607FACDC1AFB9204008FA782</string>
+				<string>607FACDE1AFB9204008FA782</string>
+				<string>607FACD31AFB9204008FA782</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Example for RecastAI</string>
+			<key>path</key>
+			<string>RecastAI</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>607FACD31AFB9204008FA782</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>607FACD41AFB9204008FA782</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>607FACD41AFB9204008FA782</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>607FACD51AFB9204008FA782</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>607FACD61AFB9204008FA782</key>
+		<dict>
+			<key>fileRef</key>
+			<string>607FACD51AFB9204008FA782</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>607FACD71AFB9204008FA782</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>ViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>607FACD81AFB9204008FA782</key>
+		<dict>
+			<key>fileRef</key>
+			<string>607FACD71AFB9204008FA782</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>607FACD91AFB9204008FA782</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>607FACDA1AFB9204008FA782</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>607FACDA1AFB9204008FA782</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>607FACDB1AFB9204008FA782</key>
+		<dict>
+			<key>fileRef</key>
+			<string>607FACD91AFB9204008FA782</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>607FACDC1AFB9204008FA782</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>607FACDD1AFB9204008FA782</key>
+		<dict>
+			<key>fileRef</key>
+			<string>607FACDC1AFB9204008FA782</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>607FACDE1AFB9204008FA782</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>607FACDF1AFB9204008FA782</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>607FACDF1AFB9204008FA782</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>607FACE01AFB9204008FA782</key>
+		<dict>
+			<key>fileRef</key>
+			<string>607FACDE1AFB9204008FA782</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>607FACE11AFB9204008FA782</key>
 		<dict>
@@ -161,7 +511,7 @@
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>420D5856F948DD8D82B7D931</string>
+				<string>7AFB219652AB23B988339B48</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -185,17 +535,19 @@
 			<string>607FACF21AFB9204008FA782</string>
 			<key>buildPhases</key>
 			<array>
-				<string>CDC6C7CF53F33D368E610A4F</string>
+				<string>E097BE258B5EAC65D9DD16E7</string>
 				<string>607FACE11AFB9204008FA782</string>
 				<string>607FACE21AFB9204008FA782</string>
 				<string>607FACE31AFB9204008FA782</string>
-				<string>EE9EBE805CE036249691CB38</string>
-				<string>8DB9A3CE12CCD1E384749A64</string>
+				<string>41B2ED39359A63A00FAF893B</string>
+				<string>24296A69C956F58B12B21F45</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
 			<key>dependencies</key>
-			<array/>
+			<array>
+				<string>607FACE71AFB9204008FA782</string>
+			</array>
 			<key>isa</key>
 			<string>PBXNativeTarget</string>
 			<key>name</key>
@@ -219,6 +571,28 @@
 			<string>RecastAI_Tests.xctest</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>607FACE61AFB9204008FA782</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>607FACC81AFB9204008FA782</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>607FACCF1AFB9204008FA782</string>
+			<key>remoteInfo</key>
+			<string>RecastAI</string>
+		</dict>
+		<key>607FACE71AFB9204008FA782</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>607FACCF1AFB9204008FA782</string>
+			<key>targetProxy</key>
+			<string>607FACE61AFB9204008FA782</string>
 		</dict>
 		<key>607FACE81AFB9204008FA782</key>
 		<dict>
@@ -433,6 +807,68 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
+		<key>607FACEF1AFB9204008FA782</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>607FACF01AFB9204008FA782</string>
+				<string>607FACF11AFB9204008FA782</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>607FACF01AFB9204008FA782</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>9E27BD743B083E51328777A3</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>RecastAI/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>MODULE_NAME</key>
+				<string>ExampleApp</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>607FACF11AFB9204008FA782</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>83A9EAF4D2F64397DB16B722</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>RecastAI/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>MODULE_NAME</key>
+				<string>ExampleApp</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
 		<key>607FACF21AFB9204008FA782</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -450,9 +886,11 @@
 		<key>607FACF31AFB9204008FA782</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>DCBD8C9131029815CBFF2E4E</string>
+			<string>365EE4C5E4D9E9691D9954A4</string>
 			<key>buildSettings</key>
 			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
 				<key>FRAMEWORK_SEARCH_PATHS</key>
 				<array>
 					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
@@ -482,9 +920,11 @@
 		<key>607FACF41AFB9204008FA782</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>C19D2EACF18F8F7CAC8B3C59</string>
+			<string>8796C3769E493C21700E10FC</string>
 			<key>buildSettings</key>
 			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
 				<key>FRAMEWORK_SEARCH_PATHS</key>
 				<array>
 					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
@@ -510,9 +950,9 @@
 		<dict>
 			<key>children</key>
 			<array>
-				<string>09059ACC9BFB139205F0D4C6</string>
-				<string>7FD23FE3A423B32AEE290615</string>
-				<string>E6CD7647F844C3BE73285E1D</string>
+				<string>9186D3673EA65D6393EB9E0E</string>
+				<string>12F07F4C7F32C7AEB15E592B</string>
+				<string>18B2E400946F3D774152FFD0</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -521,72 +961,14 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>7FD23FE3A423B32AEE290615</key>
+		<key>7AFB219652AB23B988339B48</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>F9B6528E18F3A788E7CFA439</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>README.md</string>
-			<key>path</key>
-			<string>../README.md</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
-		<key>8DB9A3CE12CCD1E384749A64</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RecastAI_Tests/Pods-RecastAI_Tests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>C15E89A5751A8D6B4C6BB110</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_RecastAI_Tests.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>C19D2EACF18F8F7CAC8B3C59</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-RecastAI_Tests.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-RecastAI_Tests/Pods-RecastAI_Tests.release.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CDC6C7CF53F33D368E610A4F</key>
+		<key>7C6EB2D0196AEAB7414E75CC</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
@@ -616,7 +998,7 @@ fi
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
-		<key>DCBD8C9131029815CBFF2E4E</key>
+		<key>83A9EAF4D2F64397DB16B722</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -625,39 +1007,56 @@ fi
 			<key>lastKnownFileType</key>
 			<string>text.xcconfig</string>
 			<key>name</key>
-			<string>Pods-RecastAI_Tests.debug.xcconfig</string>
+			<string>Pods-RecastAI_Example.release.xcconfig</string>
 			<key>path</key>
-			<string>Pods/Target Support Files/Pods-RecastAI_Tests/Pods-RecastAI_Tests.debug.xcconfig</string>
+			<string>Pods/Target Support Files/Pods-RecastAI_Example/Pods-RecastAI_Example.release.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E6CD7647F844C3BE73285E1D</key>
+		<key>8796C3769E493C21700E10FC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-RecastAI_Tests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-RecastAI_Tests/Pods-RecastAI_Tests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9186D3673EA65D6393EB9E0E</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>name</key>
-			<string>LICENSE</string>
+			<string>RecastAI.podspec</string>
 			<key>path</key>
-			<string>../LICENSE</string>
+			<string>../RecastAI.podspec</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>ECE97D06E3A4BA8D496CEC0C</key>
+		<key>9E27BD743B083E51328777A3</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>C15E89A5751A8D6B4C6BB110</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
 			<key>name</key>
-			<string>Frameworks</string>
+			<string>Pods-RecastAI_Example.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-RecastAI_Example/Pods-RecastAI_Example.debug.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>EE9EBE805CE036249691CB38</key>
+		<key>A73AD3E38DD5DEBFFF345BDC</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
@@ -668,7 +1067,7 @@ fi
 			<key>isa</key>
 			<string>PBXShellScriptBuildPhase</string>
 			<key>name</key>
-			<string>Embed Pods Frameworks</string>
+			<string>Copy Pods Resources</string>
 			<key>outputPaths</key>
 			<array/>
 			<key>runOnlyForDeploymentPostprocessing</key>
@@ -676,10 +1075,82 @@ fi
 			<key>shellPath</key>
 			<string>/bin/sh</string>
 			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RecastAI_Tests/Pods-RecastAI_Tests-frameworks.sh"
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-RecastAI_Example/Pods-RecastAI_Example-resources.sh"
 </string>
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
+		</dict>
+		<key>E097BE258B5EAC65D9DD16E7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>E1B89358A83415B15791F07E</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_RecastAI_Example.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>E74E0F1A50DE68515F90B601</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>9E27BD743B083E51328777A3</string>
+				<string>83A9EAF4D2F64397DB16B722</string>
+				<string>365EE4C5E4D9E9691D9954A4</string>
+				<string>8796C3769E493C21700E10FC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F9B6528E18F3A788E7CFA439</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_RecastAI_Tests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>
