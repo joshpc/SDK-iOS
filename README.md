@@ -111,83 +111,28 @@ public protocol HandlerRecastRequestProtocol : class
 Implement those metods in your ViewController. 
 
 ```swift
-import RecastAI
+/**
+Method called when the request was successful
+
+- parameter response: the response returned from the Recast API
+
+- returns: void
+*/
+func recastRequestDone(response : Response)
+{
+    print(response.source)
+}
 
 /**
-Class ViewController Example of implementations for Text & Voice Requests
+Method called when the request failed
+
+- parameter error: error returned from the Recast API
+
+- returns: void
 */
-class ViewController: UIViewController, HandlerRecastRequestProtocol
+func recastRequestError(error : NSError)
 {
-    //Outlets
-    @IBOutlet weak var requestTextField: UITextField!
-
-    //Vars
-    var app : RecastAPI?
-    var recording : Bool = true
-
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-
-        //Initialise app with token & handlerRecastProtocol
-        self.app = RecastAPI(token : "YOUR_APP_TOKEN", handlerRecastRequestProtocol: self)
-    }
-
-    /**
-    Method called when the request was successful
-
-    - parameter response: the response returned from the Recast API
-
-    - returns: void
-    */
-    func recastRequestDone(response : Response)
-    {
-        print(response.source)
-    }
-
-    /**
-    Method called when the request failed
-
-    - parameter error: error returned from the Recast API
-
-    - returns: void
-    */
-    func recastRequestError(error : NSError)
-    {
-        print("Delegate Error : \(error)")
-    }
-
-    /**
-    Make text request to Recast.AI API
-    */
-    @IBAction func makeRequest()
-    {
-        if (!(self.requestTextField.text?.isEmpty)!)
-        {
-            //Call makeRequest with string parameter to make a text request
-            self.app?.makeRequest(self.requestTextField.text!)
-        }
-    }
-
-    /**
-    Make Voice request to Recast.AI API
-    */
-    @IBAction func makeVoiceRequest()
-    {
-        if (self.recording)
-        {
-            self.recording = !self.recording
-            //Call startVoiceRequest to start recording your voice
-            self.app!.startVoiceRequest()
-        }
-        else
-        {
-            self.recording = !self.recording
-            //Call stopVoiceRequest to stop recording your voice and launch the request to the Recast.AI API
-            self.app!.stopVoiceRequest()
-        }
-    }
+    print("Delegate Error : \(error)")
 }
 ```
 
