@@ -7,8 +7,9 @@
 //  pierre-edouard.lieb@recast.ai
 
 import Foundation
-import SwiftHTTP
 import JSONJoy
+import Alamofire
+import SwiftWebSocket
 
 /**
  RecastAPI class handling request to the API
@@ -16,11 +17,14 @@ import JSONJoy
 public class RecastAPI
 {
     private let url : String = "https://api.recast.ai/request"
+    private let url_voice : String = "ws://api.recast.ai/request"
     private let token : String
     private weak var delegate : HandlerRecastRequestProtocol?
+    private weak var delegateVoiceFile : HandlerRecastRequestProtocol?
+    var audio : AudioFile = AudioFile()
     
     /**
-     Method called when the request failed
+     Init RecastAPI Class for text
      
      - parameter token: your app token
      - parameter handlerRecastRequestProtocol: class that handles the protocol
@@ -42,37 +46,68 @@ public class RecastAPI
      */
     public func makeRequest(request : String)
     {
-        do
-        {
-            let param = ["text" : request]
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-            let opt = try HTTP.POST(self.url, parameters: param, headers: ["Authorization" : "Token " + self.token], requestSerializer: JSONParameterSerializer())
-            opt.start
-            {
-                response in
+        let param = ["text" : request]
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        Alamofire.request(.POST, self.url, parameters: param, headers: ["Authorization" : "Token " + self.token])
+            .response { _, _, _, error in
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                if let err = response.error
-                {
+                if let error = error {
                     dispatch_async(dispatch_get_main_queue())
                     {
-                        self.delegate?.recastRequestError(err)
+                        debugPrint("\(error)")
+                        self.delegate?.recastRequestError(error)
                     }
                 }
-                else
+        }
+            .responseJSON { response in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                dispatch_async(dispatch_get_main_queue())
                 {
-                    dispatch_async(dispatch_get_main_queue())
-                    {
-                        self.delegate?.recastRequestDone(Response(JSONDecoder(response.data)))
+                    self.delegate?.recastRequestDone(Response(JSONDecoder(response.data!)))
+                }
+        }
+    }
+ 
+    /**
+     Start voice recording
+     
+     - returns: void
+     */
+    public func startVoiceRequest()
+    {
+        audio.recordAudio()
+    }
+    
+    /**
+     Stop voice recording and make the request to Recast.AI API and parse JSON response into Response object
+     
+     - returns: void
+     */
+    public func stopVoiceRequest()
+    {
+        audio.stopAudio()
+        let headers = ["Authorization": "Token " + self.token]
+        Alamofire.upload(
+            .POST,
+            self.url,
+            headers: headers,
+            multipartFormData: { multipartFormData in
+                multipartFormData.appendBodyPart(fileURL: self.audio.path, name: "voice")
+            },
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .Success(let upload, _, _):
+                    upload.responseJSON { response in
+                        debugPrint(response)
+                        self.delegate?.recastRequestDone(Response(JSONDecoder(response.data!)))
                     }
+                case .Failure(let encodingError):
+                    print(encodingError)
+                    let er = encodingError as NSError
+                    self.delegate?.recastRequestError(er)
                 }
             }
-        }
-        catch let error
-        {
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            let er = error as NSError
-            self.delegate?.recastRequestError(er)
-        }
+        )
     }
 }
 

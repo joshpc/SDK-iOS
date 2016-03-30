@@ -30,21 +30,64 @@ pod "RecastAI"
 
 ### RecastAPI Class
 
-This class handles everything. Create a RecastAPI object and init it with your token and a class that implements the `HandlerRecastRequestProtocol` Protocol. The `makeRequest` method allows you to make a request to the Recast.AI API  
+This class handles everything. Create a RecastAPI object and init it with your token and a class that implements the `HandlerRecastRequestProtocol` Protocol.
+
 ```swift
 import RecastAI
 
 class ViewController: UIViewController, HandlerRecastRequestProtocol
 {
-    var api : RecastAPI?
-    
+    var app : RecastAPI?
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        self.api = RecastAPI(token : "YOUR_APP_TOKEN", handlerRecastRequestProtocol: self)
-        self.api?.makeRequest(<#T##request: String##String#>)
+
+        //Initialise app with token & handlerRecastProtocol
+        self.app = RecastAPI(token : "YOUR_APP_TOKEN", handlerRecastRequestProtocol: self)
+    }
+}
+```
+
+* **Text Request**
+
+The `makeRequest` method allows you to make a request to the Recast.AI API. The `makeRequest` method is to make a **Text** request and takes a `String` as parameter.
+```swift
+/**
+Make text request to Recast.AI API
+*/
+@IBAction func makeRequest()
+{
+    //Call makeRequest with string parameter to make a text request
+    self.app?.makeRequest(<#T##request: String##String#>)
+}
+```
+
+* **Voice Request**
+
+In order to make a **Voice** Request you need to implement two methods `startVoiceRequest` & `stopVoiceRequest`. `startVoiceRequest` will start recording your **voice** and `stopVoiceRequest` will stop recording your **voice** and send the request to the Recast.AI API.
+
+```swift
+//Bool to check if currently recording voice 
+var recording : Bool = true
+
+/**
+Make Voice request to Recast.AI API
+*/
+@IBAction func makeVoiceRequest()
+{
+    if (self.recording)
+    {
+        self.recording = !self.recording
+        //Call startVoiceRequest to start recording your voice
+        self.app!.startVoiceRequest()
+    }
+    else
+    {
+        self.recording = !self.recording
+        //Call stopVoiceRequest to stop recording your voice and launch the request to the Recast.AI API
+        self.app!.stopVoiceRequest()
     }
 }
 ```
@@ -70,27 +113,80 @@ Implement those metods in your ViewController.
 ```swift
 import RecastAI
 
+/**
+Class ViewController Example of implementations for Text & Voice Requests
+*/
 class ViewController: UIViewController, HandlerRecastRequestProtocol
 {
-    var api : RecastAPI?
-    
+    //Outlets
+    @IBOutlet weak var requestTextField: UITextField!
+
+    //Vars
+    var app : RecastAPI?
+    var recording : Bool = true
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        self.api = RecastAPI(token : "YOUR_APP_TOKEN", handlerRecastRequestProtocol: self)
-        self.api?.makeRequest(<#T##request: String##String#>)
+
+        //Initialise app with token & handlerRecastProtocol
+        self.app = RecastAPI(token : "YOUR_APP_TOKEN", handlerRecastRequestProtocol: self)
     }
 
+    /**
+    Method called when the request was successful
+
+    - parameter response: the response returned from the Recast API
+
+    - returns: void
+    */
     func recastRequestDone(response : Response)
     {
         print(response.source)
     }
-    
+
+    /**
+    Method called when the request failed
+
+    - parameter error: error returned from the Recast API
+
+    - returns: void
+    */
     func recastRequestError(error : NSError)
     {
-        print(error)
+        print("Delegate Error : \(error)")
+    }
+
+    /**
+    Make text request to Recast.AI API
+    */
+    @IBAction func makeRequest()
+    {
+        if (!(self.requestTextField.text?.isEmpty)!)
+        {
+            //Call makeRequest with string parameter to make a text request
+            self.app?.makeRequest(self.requestTextField.text!)
+        }
+    }
+
+    /**
+    Make Voice request to Recast.AI API
+    */
+    @IBAction func makeVoiceRequest()
+    {
+        if (self.recording)
+        {
+            self.recording = !self.recording
+            //Call startVoiceRequest to start recording your voice
+            self.app!.startVoiceRequest()
+        }
+        else
+        {
+            self.recording = !self.recording
+            //Call stopVoiceRequest to stop recording your voice and launch the request to the Recast.AI API
+            self.app!.stopVoiceRequest()
+        }
     }
 }
 ```

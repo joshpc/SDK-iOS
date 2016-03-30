@@ -24,10 +24,13 @@
     ]
   },
   "dependencies": {
-    "SwiftHTTP": [
+    "JSONJoy-Swift": [
 
     ],
-    "JSONJoy-Swift": [
+    "SwiftWebSocket": [
+
+    ],
+    "Alamofire": [
 
     ]
   }

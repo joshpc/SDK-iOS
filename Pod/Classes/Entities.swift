@@ -69,6 +69,11 @@ public class Entities
     
     init () {}
     
+    /**
+     Init
+     
+     Init class with JSONDecoder to parse JSON
+     */
     init (_ decoder : JSONDecoder)
     {
         if let ag = decoder["age"].array

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F9F242D9E4D914B9280C9F1AB2C6FD70"
+               BlueprintIdentifier = "5567FB516B2C2D668F821D3A72DC9EBB"
                BuildableName = "Pods_RecastAI_Tests.framework"
                BlueprintName = "Pods-RecastAI_Tests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F9F242D9E4D914B9280C9F1AB2C6FD70"
+            BlueprintIdentifier = "5567FB516B2C2D668F821D3A72DC9EBB"
             BuildableName = "Pods_RecastAI_Tests.framework"
             BlueprintName = "Pods-RecastAI_Tests"
             ReferencedContainer = "container:Pods.xcodeproj">

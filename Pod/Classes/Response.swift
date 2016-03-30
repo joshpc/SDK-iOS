@@ -25,6 +25,11 @@ public class Response
     
     init () {}
     
+    /**
+     Init
+     
+     Init class with JSONDecoder to parse JSON
+     */
     init (_ decoder : JSONDecoder)
     {
         self.source = decoder["source"].string
