@@ -25,7 +25,7 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.app = RecastAPI(token : "e50e831bcc97f3b2e42b3704c55d5ce1", handlerRecastRequestProtocol: self)
+        self.app = RecastAPI(token : "YOUR_APP_TOKEN", handlerRecastRequestProtocol: self)
     }
     
     /**

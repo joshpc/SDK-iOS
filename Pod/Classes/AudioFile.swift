@@ -10,7 +10,7 @@ import Foundation
 import AVFoundation
 
 /**
- Class AudioFile
+Class AudioFile
  
 Create an audio file to be processed by the Recast.AI API
 */
