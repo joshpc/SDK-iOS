@@ -16,8 +16,8 @@ import SwiftWebSocket
  */
 public class RecastAPI
 {
-    private let url : String = "https://api.recast.ai/request"
-    private let url_voice : String = "ws://api.recast.ai/request"
+    private let url : String = "https://api.recast.ai/v1/request"
+    private let url_voice : String = "ws://api.recast.ai/v1/request"
     private let token : String
     private weak var delegate : HandlerRecastRequestProtocol?
     private weak var delegateVoiceFile : HandlerRecastRequestProtocol?
@@ -26,7 +26,7 @@ public class RecastAPI
     /**
      Init RecastAPI Class for text
      
-     - parameter token: your app token
+     - parameter token: your bot token
      - parameter handlerRecastRequestProtocol: class that handles the protocol
      
      - returns: void
@@ -63,7 +63,8 @@ public class RecastAPI
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 dispatch_async(dispatch_get_main_queue())
                 {
-                    self.delegate?.recastRequestDone(Response(JSONDecoder(response.data!)))
+                    let res = Results(JSONDecoder(response.data!))
+                    self.delegate?.recastRequestDone(res.results!)
                 }
         }
     }

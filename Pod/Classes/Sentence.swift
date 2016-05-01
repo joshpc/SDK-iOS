@@ -20,7 +20,7 @@ public class Sentence
     public var type : String?
     public var polarity : String?
     public var action : String?
-    public  var agent : String?
+    public var agent : String?
     public var entities : Entities?
     
     init () {}

@@ -180,6 +180,7 @@ public class Sentence
 
 ### Entities
 
+All the entities implement the `CustomStringConvertible` protocol. See Apple documentation [CustomStringConvertible](https://developer.apple.com/library/watchos/documentation/Swift/Reference/Swift_CustomStringConvertible_Protocol/index.html) for more information.
 This is the list of the current entities we detect.
 
 ```swift
@@ -211,8 +212,27 @@ public class Entities
     public var temperature : [Temperature]?
     public var url : [Url]?
     public var volume : [Volume]?
+    public var custom : [Custom]?
 }
 ```
+
+### Accessing Custom Entities
+
+If you want to get the custom entities you can do it this way : 
+
+print(response.sentences![0].entities?.custom)
+
+```swift
+Optional(["movie": [Custom(value : star wars 8, raw : Star Wars 8)]])
+```
+If you want to access the array of a specific custom entity :
+
+print(response.sentences![0].entities?.custom!["movie"]
+
+```swift
+Optional([Custom(value : star wars 8, raw : Star Wars 8)])
+```
+
 
 ## MAN Recast.AI
 

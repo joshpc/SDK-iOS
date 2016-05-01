@@ -23,8 +23,6 @@ public class Response
     public var timestamp : String?
     public var status : Int?
     
-    init () {}
-    
     /**
      Init
      

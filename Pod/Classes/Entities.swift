@@ -38,6 +38,7 @@ import JSONJoy
 - url
 - volume
  */
+
 public class Entities
 {
     public var age : [Age]?
@@ -66,8 +67,7 @@ public class Entities
     public var temperature : [Temperature]?
     public var url : [Url]?
     public var volume : [Volume]?
-    
-    init () {}
+    public var custom : [String:[Custom]]?
     
     /**
      Init
@@ -76,6 +76,8 @@ public class Entities
      */
     init (_ decoder : JSONDecoder)
     {
+        var customs = decoder.dictionary
+        print(customs)
         if let ag = decoder["age"].array
         {
             self.age = [Age]()
@@ -83,6 +85,7 @@ public class Entities
             {
                 self.age?.append(Age(agDecoder))
             }
+            customs?.removeValueForKey("age")
         }
         if let crdnl = decoder["cardinal"].array
         {
@@ -91,6 +94,7 @@ public class Entities
             {
                 self.cardinal?.append(Cardinal(crdnlDecoder))
             }
+            customs?.removeValueForKey("cardinal")
         }
         if let clr = decoder["color"].array
         {
@@ -99,6 +103,7 @@ public class Entities
             {
                 self.color?.append(Color(clrDecoder))
             }
+            customs?.removeValueForKey("color")
         }
         if let dttm = decoder["datetime"].array
         {
@@ -107,6 +112,7 @@ public class Entities
             {
                 self.datetime?.append(Datetime(dttmDecoder))
             }
+            customs?.removeValueForKey("datetime")
         }
         if let dstnc = decoder["distance"].array
         {
@@ -115,6 +121,7 @@ public class Entities
             {
                 self.distance?.append(Distance(dstncDecoder))
             }
+            customs?.removeValueForKey("distance")
         }
         if let drtn = decoder["duration"].array
         {
@@ -123,6 +130,7 @@ public class Entities
             {
                 self.duration?.append(Duration(drtnDecoder))
             }
+            customs?.removeValueForKey("duration")
         }
         if let eml = decoder["email"].array
         {
@@ -131,6 +139,7 @@ public class Entities
             {
                 self.email?.append(Email(emlDecoder))
             }
+            customs?.removeValueForKey("email")
         }
         if let ip = decoder["ip"].array
         {
@@ -139,6 +148,7 @@ public class Entities
             {
                 self.ip?.append(IP(ipDecoder))
             }
+            customs?.removeValueForKey("ip")
         }
         if let lngg = decoder["language"].array
         {
@@ -147,6 +157,7 @@ public class Entities
             {
                 self.language?.append(Language(lnggDecoder))
             }
+            customs?.removeValueForKey("language")
         }
         if let lctn = decoder["location"].array
         {
@@ -155,6 +166,7 @@ public class Entities
             {
                 self.location?.append(Location(lctnDecoder))
             }
+            customs?.removeValueForKey("location")
         }
         if let mss = decoder["mass"].array
         {
@@ -163,6 +175,7 @@ public class Entities
             {
                 self.mass?.append(Mass(mssDecoder))
             }
+            customs?.removeValueForKey("mass")
         }
         if let msc = decoder["misc"].array
         {
@@ -171,6 +184,7 @@ public class Entities
             {
                 self.misc?.append(Misc(mscDecoder))
             }
+            customs?.removeValueForKey("misc")
         }
         if let mn = decoder["money"].array
         {
@@ -179,6 +193,7 @@ public class Entities
             {
                 self.money?.append(Money(mnDecoder))
             }
+            customs?.removeValueForKey("money")
         }
         if let ntnlt = decoder["nationality"].array
         {
@@ -187,6 +202,7 @@ public class Entities
             {
                 self.nationality?.append(Nationality(ntnltDecoder))
             }
+            customs?.removeValueForKey("nationality")
         }
         if let nmbr = decoder["number"].array
         {
@@ -195,6 +211,7 @@ public class Entities
             {
                 self.number?.append(Number(nmbrDecoder))
             }
+            customs?.removeValueForKey("number")
         }
         if let ordnl = decoder["ordinal"].array
         {
@@ -203,6 +220,7 @@ public class Entities
             {
                 self.ordinal?.append(Ordinal(ordnlDecoder))
             }
+            customs?.removeValueForKey("ordinal")
         }
         if let orgnztn = decoder["organization"].array
         {
@@ -211,6 +229,7 @@ public class Entities
             {
                 self.organization?.append(Organization(orgnztnDecoder))
             }
+            customs?.removeValueForKey("organization")
         }
         if let prcnt = decoder["percent"].array
         {
@@ -219,6 +238,7 @@ public class Entities
             {
                 self.percent?.append(Percent(prcntDecoder))
             }
+            customs?.removeValueForKey("percent")
         }
         if let prsn = decoder["person"].array
         {
@@ -227,6 +247,7 @@ public class Entities
             {
                 self.person?.append(Person(prsnDecoder))
             }
+            customs?.removeValueForKey("person")
         }
         if let prnn = decoder["pronoun"].array
         {
@@ -235,6 +256,7 @@ public class Entities
             {
                 self.pronoun?.append(Pronoun(prnnDecoder))
             }
+            customs?.removeValueForKey("pronoun")
         }
         if let st = decoder["set"].array
         {
@@ -243,6 +265,7 @@ public class Entities
             {
                 self.set?.append(Set(stDecoder))
             }
+            customs?.removeValueForKey("set")
         }
         if let srt = decoder["sort"].array
         {
@@ -251,6 +274,7 @@ public class Entities
             {
                 self.sort?.append(Sort(srtDecoder))
             }
+            customs?.removeValueForKey("sort")
         }
         if let spd = decoder["speed"].array
         {
@@ -259,6 +283,7 @@ public class Entities
             {
                 self.speed?.append(Speed(spdDecoder))
             }
+            customs?.removeValueForKey("speed")
         }
         if let tmprtr = decoder["temperature"].array
         {
@@ -267,6 +292,7 @@ public class Entities
             {
                 self.temperature?.append(Temperature(tmprtrDecoder))
             }
+            customs?.removeValueForKey("temperature")
         }
         if let url = decoder["url"].array
         {
@@ -275,6 +301,7 @@ public class Entities
             {
                 self.url?.append(Url(urlDecoder))
             }
+            customs?.removeValueForKey("url")
         }
         if let vlm = decoder["volume"].array
         {
@@ -283,12 +310,26 @@ public class Entities
             {
                 self.volume?.append(Volume(vlmDecoder))
             }
+            customs?.removeValueForKey("volume")
+        }
+        print(customs)
+        if customs?.isEmpty == false
+        {
+            self.custom = [String:[Custom]]()
+            for (key, entities) in customs ?? [:]
+            {
+                self.custom?[key] = []
+                for entity in entities.array!
+                {
+                    self.custom?[key]?.append(Custom(entity))
+                }
+            }
         }
     }
 }
 
 /**
- Class Age
+ Struct Age
  
  Examples :	20 year old, eighteen-years-old
  
@@ -297,24 +338,27 @@ public class Entities
  - unit: String, the quantifier. Can be s (seconds), min (minutes), h (hours), wk (weeks), y (years), decade (decades), century (centuries), etc.
  - raw: The raw value extracted for the sentence
  */
-public class Age
+public struct Age : CustomStringConvertible
 {
-    public var value : Float?
-    public var unit : String?
-    public var raw : String?
+    public let value : Float
+    public let unit : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Age(value : \(value), unit : \(unit), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].float
-        self.unit = decoder["unit"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].float!
+        self.unit = decoder["unit"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Cardinal
+ Struct Cardinal
  
  Examples :	north, southeast, north-west
  
@@ -322,22 +366,25 @@ public class Age
  - deg: Float, the cardinal point bearing in degrees
  - raw: The raw value extracted for the sentence
  */
-public class Cardinal
+public struct Cardinal : CustomStringConvertible
 {
-    public var deg : Float?
-    public var raw : String?
+    public let deg : Float
+    public let raw : String
     
-    init () {}
-    
+    public var description: String
+    {
+        return "Cardinal(deg : \(deg), raw : \(raw))"
+    }
+
     init (_ decoder : JSONDecoder)
     {
-        self.deg = decoder["deg"].float
-        self.raw = decoder["raw"].string
+        self.deg = decoder["deg"].float!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Color
+ Struct Color
  
  Examples :	blue, red, orange
  
@@ -345,22 +392,25 @@ public class Cardinal
  - hex: String, the hexadecimal value of the color
  - raw: The raw value extracted for the sentence
  */
-public class Color
+public struct Color : CustomStringConvertible
 {
-    public var hex : String?
-    public var raw : String?
+    public let hex : String
+    public let raw : String
     
-    init () {}
-    
+    public var description: String
+    {
+        return "Color(hex : \(hex), raw : \(raw))"
+    }
+
     init (_ decoder : JSONDecoder)
     {
-        self.hex = decoder["hex"].string
-        self.raw = decoder["raw"].string
+        self.hex = decoder["hex"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Datetime
+ Struct Datetime
  
  Examples :	the next friday, today, September 7 2016
  
@@ -368,22 +418,25 @@ public class Color
  - value: Integer, the unix timestamp of the datetime
  - raw: The raw value extracted for the sentence
  */
-public class Datetime
+public struct Datetime : CustomStringConvertible
 {
-    public var value : Int?
-    public var raw : String?
+    public let value : Int
+    public let raw : String
     
-    init () {}
-    
+    public var description: String
+    {
+        return "Datetime(value : \(value), raw : \(raw))"
+    }
+
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].integer
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].integer!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Distance
+ Struct Distance
  
  Examples :	20 meters, seven miles
  
@@ -392,24 +445,27 @@ public class Datetime
  - unit: String, the quantifier
  - raw: The raw value extracted for the sentence
  */
-public class Distance
+public struct Distance : CustomStringConvertible
 {
-    public var value : Float?
-    public var unit : String?
-    public var raw : String?
+    public let value : Float
+    public let unit : String
+    public let raw : String
     
-    init () {}
-    
+    public var description: String
+    {
+        return "Distance(value : \(value), unit : \(unit), raw : \(raw))"
+    }
+
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].float
-        self.unit = decoder["unit"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].float!
+        self.unit = decoder["unit"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Duration
+ Struct Duration
  
  Examples :	five days, one year
  
@@ -417,22 +473,25 @@ public class Distance
  - value: Integer, the number of seconds in this span
  - raw: The raw value extracted for the sentence
  */
-public class Duration
+public struct Duration : CustomStringConvertible
 {
-    public var value : Int?
-    public var raw : String?
+    public let value : Int
+    public let raw : String
     
-    init () {}
-    
+    public var description: String
+    {
+        return "Duration(value : \(value), raw : \(raw))"
+    }
+
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].integer
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].integer!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Email
+ Struct Email
  
  Examples :	hello@recast.ai, hello+devs@recast.ai
  
@@ -440,22 +499,25 @@ public class Duration
  - value: String, the downcased email
  - raw: The raw value extracted for the sentence
  */
-public class Email
+public struct Email : CustomStringConvertible
 {
-    public var value : String?
-    public var raw : String?
+    public let value : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Email(value : \(value), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class IP
+ Struct IP
  
  Examples :	127.0.0.1
  
@@ -465,26 +527,29 @@ public class Email
  - lng: Float, the longitude of the ip’s location
  - raw: The raw value extracted for the sentence
  */
-public class IP
+public struct IP : CustomStringConvertible
 {
-    public var formated : String?
-    public var lat : Float?
-    public var lng : Float?
-    public var raw : String?
+    public let formated : String
+    public let lat : Float
+    public let lng : Float
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "IP(formated : \(formated), lat : \(lat), lng : \(lng), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.formated = decoder["formated"].string
-        self.lat = decoder["lat"].float
-        self.lng = decoder["lng"].float
-        self.raw = decoder["raw"].string
+        self.formated = decoder["formated"].string!
+        self.lat = decoder["lat"].float!
+        self.lng = decoder["lng"].float!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Language
+ Struct Language
  
  Examples :	French, Hindi, Russian
  
@@ -492,22 +557,25 @@ public class IP
  - code: String, the language code. Follows the ISO 639-1 standard
  - raw: The raw value extracted for the sentence
  */
-public class Language
+public struct Language : CustomStringConvertible
 {
-    public var code : String?
-    public var raw : String?
+    public let code : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Language(code : \(code), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.code = decoder["code"].string
-        self.raw = decoder["raw"].string
+        self.code = decoder["code"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Location
+ Struct Location
  
  Examples :	San Francisco, Paris, France
  
@@ -517,26 +585,29 @@ public class Language
  - lng: Float, the longitude of the location
  - raw: The raw value extracted for the sentence
  */
-public class Location
+public struct Location : CustomStringConvertible
 {
-    public var formated : String?
-    public var lat : Float?
-    public var lng : Float?
-    public var raw : String?
+    public let formated : String
+    public let lat : Float
+    public let lng : Float
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Location(formated : \(formated), lat : \(lat), lng : \(lng), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.formated = decoder["formated"].string
-        self.lat = decoder["lat"].float
-        self.lng = decoder["lng"].float
-        self.raw = decoder["raw"].string
+        self.formated = decoder["formated"].string!
+        self.lat = decoder["lat"].float!
+        self.lng = decoder["lng"].float!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Mass
+ Struct Mass
  
  Examples :	45 pounds, twenty-one grams
  
@@ -545,24 +616,27 @@ public class Location
  - unit: String, the quantifier. Can be lbs (pounds), kg (kilograms), g (grams), oz (ounces), etc.
  - raw: The raw value extracted for the sentence
  */
-public class Mass
+public struct Mass : CustomStringConvertible
 {
-    public var value : Float?
-    public var unit : String?
-    public var raw : String?
+    public let value : Float
+    public let unit : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Mass(value : \(value), unit : \(unit), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].float
-        self.unit = decoder["unit"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].float!
+        self.unit = decoder["unit"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Misc
+ Struct Misc
  
  Examples :	World Champion, Americans
  
@@ -570,22 +644,25 @@ public class Mass
  - value: String, the downcased entity extracted
  - raw: The raw value extracted for the sentence
  */
-public class Misc
+public struct Misc : CustomStringConvertible
 {
-    public var value : String?
-    public var raw : String?
+    public let value : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Misc(value : \(value), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Money
+ Struct Money
  
  Examples :	3.14 euros, eight millions dollars, $6
  
@@ -594,24 +671,27 @@ public class Misc
  - unit: String, the currency. Follows the ISO 4217 standard
  - raw: The raw value extracted for the sentence
  */
-public class Money
+public struct Money : CustomStringConvertible
 {
-    public var value : Float?
-    public var unit : String?
-    public var raw : String?
+    public let value : Float
+    public let unit : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Money(value : \(value), unit : \(unit), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].float
-        self.unit = decoder["unit"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].float!
+        self.unit = decoder["unit"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Nationality
+ Struct Nationality
  
  Examples :	French, Spanish, Australian
  
@@ -619,22 +699,25 @@ public class Money
  - code: String, the country code. Follows the ISO 3166-1 alpha2 standard
  - raw: The raw value extracted for the sentence
  */
-public class Nationality
+public struct Nationality : CustomStringConvertible
 {
-    public var code : String?
-    public var raw : String?
+    public let code : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Nationality(code : \(code), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.code = decoder["code"].string
-        self.raw = decoder["raw"].string
+        self.code = decoder["code"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Number
+ Struct Number
  
  Examples :	one thousand, 3, 9,000
  
@@ -642,22 +725,25 @@ public class Nationality
  - value: Integer, the number
  - raw: The raw value extracted for the sentence
  */
-public class Number
+public struct Number : CustomStringConvertible
 {
-    public var value : Int?
-    public var raw : String?
+    public let value : Int
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Number(value : \(value), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].integer
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].integer!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Ordinal
+ Struct Ordinal
  
  Examples :	3rd, 158th, last
  
@@ -665,22 +751,25 @@ public class Number
  - value: Integer, the number behind the ordinal
  - raw: The raw value extracted for the sentence
  */
-public class Ordinal
+public struct Ordinal : CustomStringConvertible
 {
-    public var value : Int?
-    public var raw : String?
+    public let value : Int
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Ordinal(value : \(value), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].integer
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].integer!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Organization
+ Struct Organization
  
  Examples :	Lehman Brothers, NASA
  
@@ -688,22 +777,25 @@ public class Ordinal
  - value: String, the downcased entity extracted
  - raw: The raw value extracted for the sentence
  */
-public class Organization
+public struct Organization : CustomStringConvertible
 {
-    public var value : String?
-    public var raw : String?
+    public let value : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Organization(value : \(value), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Percent
+ Struct Percent
  
  Examples :	99%, two percent, one out of three
  
@@ -712,24 +804,27 @@ public class Organization
  - unit: String, the quantifier. Can be % (percent), etc.
  - raw: The raw value extracted for the sentence
  */
-public class Percent
+public struct Percent : CustomStringConvertible
 {
-    public var value : Float?
-    public var unit : String?
-    public var raw : String?
+    public let value : Float
+    public let unit : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Percent(value : \(value), unit : \(unit), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].float
-        self.unit = decoder["unit"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].float!
+        self.unit = decoder["unit"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Person
+ Struct Person
  
  Examples :	John Smith, David H. Doe
  
@@ -737,22 +832,25 @@ public class Percent
  - value: String, the downcased entity extracted
  - raw: The raw value extracted for the sentence
  */
-public class Person
+public struct Person : CustomStringConvertible
 {
-    public var value : String?
-    public var raw : String?
+    public let value : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Person(value : \(value), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Pronoun
+ Struct Pronoun
  
  Examples :	I, we, it
  
@@ -762,26 +860,29 @@ public class Person
  - gender: String, the gender of the pronoun. Can be unknown, neutral, male of female
  - raw: The raw value extracted for the sentence
  */
-public class Pronoun
+public struct Pronoun : CustomStringConvertible
 {
-    public var person : Int?
-    public var number : String?
-    public var gender : String?
-    public var raw : String?
+    public let person : Int
+    public let number : String
+    public let gender : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Pronoun(person : \(person), number : \(number), gender : \(gender), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.person = decoder["person"].integer
-        self.number = decoder["number"].string
-        self.gender = decoder["gender"].string
-        self.raw = decoder["raw"].string
+        self.person = decoder["person"].integer!
+        self.number = decoder["number"].string!
+        self.gender = decoder["gender"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Set
+ Struct Set
  
  Examples :	every Sunday, each day
  
@@ -790,24 +891,27 @@ public class Pronoun
  - grain: String, the delay to repeat. Can be a combination of a number and a quantifier (day, week, month, year), just a quantifier, or even a day name.
  - raw: The raw value extracted for the sentence
  */
-public class Set
+public struct Set : CustomStringConvertible
 {
-    public var next : Int?
-    public var grain : String?
-    public var raw : String?
+    public let next : Int
+    public let grain : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Set(next : \(next), grain : \(grain), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.next = decoder["next"].integer
-        self.grain = decoder["grain"].string
-        self.raw = decoder["raw"].string
+        self.next = decoder["next"].integer!
+        self.grain = decoder["grain"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Sort
+ Struct Sort
  
  Examples :	most valuable, best, least affordable
  
@@ -816,24 +920,27 @@ public class Set
  - order: String, the order to sort (MySQL inspired)
  - raw: The raw value extracted for the sentence
  */
-public class Sort
+public struct Sort : CustomStringConvertible
 {
-    public var value : String?
-    public var order : String?
-    public var raw : String?
+    public let value : String
+    public let order : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Sort(value : \(value), order : \(order), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].string
-        self.order = decoder["order"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].string!
+        self.order = decoder["order"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Speed
+ Struct Speed
  
  Examples :	7 mph, 10 km/h, seven meters per second
  
@@ -842,24 +949,27 @@ public class Sort
  - unit: String, the quantifier. Can be km/h (kilometer per hour), mi/s (miles per second), kt (knots), etc.
  - raw: The raw value extracted for the sentence
  */
-public class Speed
+public struct Speed : CustomStringConvertible
 {
-    public var value : Float?
-    public var unit : String?
-    public var raw : String?
+    public let value : Float
+    public let unit : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Speed(value : \(value), unit : \(unit), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].float
-        self.unit = decoder["unit"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].float!
+        self.unit = decoder["unit"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Temperature
+ Struct Temperature
  
  Examples :	7 mph, 10 km/h, seven meters per second
  
@@ -868,24 +978,27 @@ public class Speed
  - unit: String, the quantifier. Can be C (Celsius), K (Kelvin), F (Fahrenheit), R (Rankine), etc.
  - raw: The raw value extracted for the sentence
  */
-public class Temperature
+public struct Temperature : CustomStringConvertible
 {
-    public var value : Float?
-    public var unit : String?
-    public var raw : String?
+    public let value : Float
+    public let unit : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Temperature(value : \(value), unit : \(unit), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].float
-        self.unit = decoder["unit"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].float!
+        self.unit = decoder["unit"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Url
+ Struct Url
  
  Examples :	https://recast.ai, localhost:9000, api.recast.ai/request
  
@@ -893,22 +1006,25 @@ public class Temperature
  - value: String, the downcased entity extracted
  - raw: The raw value extracted for the sentence
  */
-public class Url
+public struct Url : CustomStringConvertible
 {
-    public var value : String?
-    public var raw : String?
+    public let value : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Url(value : \(value), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].string!
+        self.raw = decoder["raw"].string!
     }
 }
 
 /**
- Class Volume
+ Struct Volume
  
  Examples :	30 liters, two barrels, ½ tbsp
  
@@ -917,18 +1033,46 @@ public class Url
  - unit: String, the quantifier. Can be l (liters), tsp (teaspoons), pt (pints), etc.
  - raw: The raw value extracted for the sentence
  */
-public class Volume
+public struct Volume : CustomStringConvertible
 {
-    public var value : Float?
-    public var unit : String?
-    public var raw : String?
+    public let value : Float
+    public let unit : String
+    public let raw : String
     
-    init () {}
+    public var description: String
+    {
+        return "Volume(value : \(value), unit : \(unit), raw : \(raw))"
+    }
     
     init (_ decoder : JSONDecoder)
     {
-        self.value = decoder["value"].float
-        self.unit = decoder["unit"].string
-        self.raw = decoder["raw"].string
+        self.value = decoder["value"].float!
+        self.unit = decoder["unit"].string!
+        self.raw = decoder["raw"].string!
     }
 }
+
+/**
+ Struct Custom
+ 
+ Key:
+ - value: the value
+ - raw: The raw value extracted for the sentence
+ */
+public struct Custom : CustomStringConvertible
+{
+    public let value : String
+    public let raw : String
+    
+    public var description: String
+    {
+        return "Custom(value : \(value), raw : \(raw))"
+    }
+    
+    init (_ decoder : JSONDecoder)
+    {
+        self.value = decoder["value"].string!
+        self.raw = decoder["raw"].string!
+    }
+}
+
