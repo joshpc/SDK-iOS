@@ -216,7 +216,7 @@ public class Entities
 }
 ```
 
-You can print a description of the entity using the description attribute :
+You can print a description of the entity using the description method :
 ```swift
 public var description: String
 {
