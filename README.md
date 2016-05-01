@@ -37,15 +37,15 @@ import RecastAI
 
 class ViewController: UIViewController, HandlerRecastRequestProtocol
 {
-    var app : RecastAPI?
+    var bot : RecastAPI?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        //Initialise app with token & handlerRecastProtocol
-        self.app = RecastAPI(token : "YOUR_APP_TOKEN", handlerRecastRequestProtocol: self)
+        //Initialise bot with token & handlerRecastProtocol
+        self.bot = RecastAPI(token : "YOUR_BOT_TOKEN", handlerRecastRequestProtocol: self)
     }
 }
 ```
@@ -60,7 +60,7 @@ Make text request to Recast.AI API
 @IBAction func makeRequest()
 {
     //Call makeRequest with string parameter to make a text request
-    self.app?.makeRequest(<#T##request: String##String#>)
+    self.bot?.makeRequest(<#T##request: String##String#>)
 }
 ```
 
@@ -81,13 +81,13 @@ Make Voice request to Recast.AI API
     {
         self.recording = !self.recording
         //Call startVoiceRequest to start recording your voice
-        self.app!.startVoiceRequest()
+        self.bot!.startVoiceRequest()
     }
     else
     {
         self.recording = !self.recording
         //Call stopVoiceRequest to stop recording your voice and launch the request to the Recast.AI API
-        self.app!.stopVoiceRequest()
+        self.bot!.stopVoiceRequest()
     }
 }
 ```
@@ -146,7 +146,7 @@ We will return an error (400: bad_request) if any of these cases is met:
 
 We will return an error (401: unauthorized) if the following case is met:
 
-- The token provided in your request is not linked to any of your apps.
+- The token provided in your request is not linked to any of your bots.
 
 ### Response
 
@@ -173,7 +173,7 @@ public class Sentence
     public var type : String?
     public var polarity : String?
     public var action : String?
-    public  var agent : String?
+    public var agent : String?
     public var entities : Entities?
 }
 ```
@@ -216,19 +216,37 @@ public class Entities
 }
 ```
 
+You can print a description of the entity using the description attribute :
+```swift
+public var description: String
+{
+    return "Custom(value : \(value), raw : \(raw))"
+}
+```
+
+### Accessing Entities
+
+You can access entities from the first sentence this way :
+```swift
+response.sentences![0].entities?.age.raw
+```
+
 ### Accessing Custom Entities
 
-If you want to get the custom entities you can do it this way : 
-
+If you want to get custom entities you can do it this way : 
+```swift
 print(response.sentences![0].entities?.custom)
-
+```
+Output :
 ```swift
 Optional(["movie": [Custom(value : star wars 8, raw : Star Wars 8)]])
 ```
-If you want to access the array of a specific custom entity :
 
+If you want to access the array of a specific custom entity you can do it with its key:
+```swift
 print(response.sentences![0].entities?.custom!["movie"]
-
+```
+Output :
 ```swift
 Optional([Custom(value : star wars 8, raw : Star Wars 8)])
 ```

@@ -2,6 +2,19 @@
 All notable changes to this project will be documented in this file.
 
 ---
+## [1.4.1](https://github.com/RecastAI/SDK-ios/releases/tag/1.4.1)
+
+#### Features
+
+* Minor changes
+
+## [1.4.0](https://github.com/RecastAI/SDK-ios/releases/tag/1.4.0)
+
+#### Features
+
+* Update to API v1
+* Add custom entities
+
 ## [1.0.0](https://github.com/RecastAI/SDK-ios/releases/tag/1.0.0)
 
 #### Features

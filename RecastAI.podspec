@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "RecastAI"
-s.version          = "1.4.0"
+s.version          = "1.4.1"
 s.summary          = "Recast.AI Official iOS SDK in Swift"
 
 # This description is used to generate tags and improve search results.
@@ -17,7 +17,7 @@ s.summary          = "Recast.AI Official iOS SDK in Swift"
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 s.description      = <<-DESC
-Recast.AI Official iOS SDK in Swift. Allows you to make request to your apps.
+Recast.AI Official iOS SDK in Swift. Allows you to make request to your bots.
 DESC
 
 s.homepage         = "https://github.com/RecastAI"
