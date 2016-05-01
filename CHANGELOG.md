@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 
 ---
+## [1.4.2](https://github.com/RecastAI/SDK-ios/releases/tag/1.4.2)
+
+#### Features
+
+* Minor changes
+
 ## [1.4.1](https://github.com/RecastAI/SDK-ios/releases/tag/1.4.1)
 
 #### Features
