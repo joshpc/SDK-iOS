@@ -77,7 +77,6 @@ public class Entities
     init (_ decoder : JSONDecoder)
     {
         var customs = decoder.dictionary
-        print(customs)
         if let ag = decoder["age"].array
         {
             self.age = [Age]()
@@ -312,7 +311,6 @@ public class Entities
             }
             customs?.removeValueForKey("volume")
         }
-        print(customs)
         if customs?.isEmpty == false
         {
             self.custom = [String:[Custom]]()
