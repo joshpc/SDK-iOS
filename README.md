@@ -8,6 +8,8 @@
 
 ![alt text][logo]
 
+Recast.AI official SDK in Swift.
+
 ## Synospis
 
 This pod is a Swift interface to the Recast.AI API. It allows you to make requests to your bots.
