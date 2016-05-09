@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 
 ---
+## [2.0.1](https://github.com/RecastAI/SDK-ios/releases/tag/2.0.1)
+
+#### Features
+
+* Add synopsis to README
+
 ## [2.0.0](https://github.com/RecastAI/SDK-ios/releases/tag/2.0.0)
 
 #### Features

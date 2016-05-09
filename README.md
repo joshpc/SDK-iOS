@@ -8,6 +8,10 @@
 
 ![alt text][logo]
 
+## Synospis
+
+This pod is a Swift interface to the Recast.AI API. It allows you to make requests to your bots.
+
 ## Requirements
 
 - iOS 8.0+
