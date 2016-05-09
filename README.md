@@ -2,16 +2,11 @@
 
 [logo]: https://github.com/RecastAI/SDK-ios/blob/master/Misc/logo-inline.png "Recast.AI"
 
-[![CI Status](http://img.shields.io/travis/plieb/RecastAI.svg?style=flat)](https://travis-ci.org/plieb/RecastAI)
 [![Version](https://img.shields.io/cocoapods/v/RecastAI.svg?style=flat)](http://cocoapods.org/pods/RecastAI)
 [![License](https://img.shields.io/cocoapods/l/RecastAI.svg?style=flat)](http://cocoapods.org/pods/RecastAI)
 [![Platform](https://img.shields.io/cocoapods/p/RecastAI.svg?style=flat)](http://cocoapods.org/pods/RecastAI)
 
 ![alt text][logo]
-
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
 
@@ -26,18 +21,23 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "RecastAI"
 ```
-## How to use Recast iOS SDK
 
-### RecastAPI Class
+## Usage
 
-This class handles everything. Create a RecastAPI object and init it with your token and a class that implements the `HandlerRecastRequestProtocol` Protocol.
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Specs
+
+### RecastAIClient
+
+This class handles everything. Create a RecastAIClient object and init it with your token and a class that implements the `HandlerRecastRequestProtocol` Protocol.
 
 ```swift
 import RecastAI
 
 class ViewController: UIViewController, HandlerRecastRequestProtocol
 {
-    var bot : RecastAPI?
+    var bot : RecastAIClient?
 
     override func viewDidLoad()
     {
@@ -45,14 +45,14 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
         // Do any additional setup after loading the view, typically from a nib.
 
         //Initialise bot with token & handlerRecastProtocol
-        self.bot = RecastAPI(token : "YOUR_BOT_TOKEN", handlerRecastRequestProtocol: self)
+        self.bot = RecastAIClient(token : "YOUR_BOT_TOKEN", handlerRecastRequestProtocol: self)
     }
 }
 ```
 
 * **Text Request**
 
-The `makeRequest` method allows you to make a request to the Recast.AI API. The `makeRequest` method is to make a **Text** request and takes a `String` as parameter.
+The `textRequest` method allows you to make a request to the Recast.AI API. The `textRequest` method is to make a **Text** request and takes a `String` as parameter.
 ```swift
 /**
 Make text request to Recast.AI API
@@ -60,13 +60,13 @@ Make text request to Recast.AI API
 @IBAction func makeRequest()
 {
     //Call makeRequest with string parameter to make a text request
-    self.bot?.makeRequest(<#T##request: String##String#>)
+    self.bot?.textRequest(<#T##request: String##String#>)
 }
 ```
 
-* **Voice Request**
+* **Stream Request**
 
-In order to make a **Voice** Request you need to implement two methods `startVoiceRequest` & `stopVoiceRequest`. `startVoiceRequest` will start recording your **voice** and `stopVoiceRequest` will stop recording your **voice** and send the request to the Recast.AI API.
+In order to make a **Voice** Request you need to implement two methods `startStreamRequest` & `stopStreamRequest`. `startStreamRequest` will start recording your **voice** and `stopStreamRequest` will stop recording your **voice** and send the request to the Recast.AI API.
 
 ```swift
 //Bool to check if currently recording voice 
@@ -80,19 +80,19 @@ Make Voice request to Recast.AI API
     if (self.recording)
     {
         self.recording = !self.recording
-        //Call startVoiceRequest to start recording your voice
-        self.bot!.startVoiceRequest()
+        //Call startStreamRequest to start recording your voice
+        self.bot!.startStreamRequest()
     }
     else
     {
         self.recording = !self.recording
-        //Call stopVoiceRequest to stop recording your voice and launch the request to the Recast.AI API
-        self.bot!.stopVoiceRequest()
+        //Call stopStreamRequest to stop recording your voice and launch the request to the Recast.AI API
+        self.bot!.stopStreamRequest()
     }
 }
 ```
 
-### handlerRecastRequestProtocol
+* **handlerRecastRequestProtocol**
 
 In order to comply with the handlerRecastRequestProtocol you need to implement `recastRequestDone` & `recastRequestError`.
 - `recastRequestDone` is called when the request was successful with the Response in parameter
@@ -136,21 +136,9 @@ func recastRequestError(error : NSError)
 }
 ```
 
-### Error
-
-We will return an error (400: bad_request) if any of these cases is met:
-
-- text parameter is missing.
-- text parameter is blank.
-- text parameter is superior to 256 characters.
-
-We will return an error (401: unauthorized) if the following case is met:
-
-- The token provided in your request is not linked to any of your bots.
-
 ### Response
 
-Once you made the request to the API, you receice a response. Response contains an array of intents sorted by probability and an array of the sentences you sent through the `makeRequest` method.
+Once you made the request to the API, you receice a response. Response contains an array of intents sorted by probability and an array of the sentences you sent through the `textRequest` method.
 ```swift
 public class Response
 {
@@ -160,12 +148,13 @@ public class Response
     public var version : String?
     public var timestamp : String?
     public var status : Int?
+    public var raw : [String : AnyObject]?
 }
 ```
 
 ### Sentence
 
-A Sentence contains the action and the object `Entities`
+A Sentence contains the following attributes and the object `Entities`
 ```swift
 public class Sentence
 {
@@ -186,33 +175,33 @@ This is the list of the current entities we detect.
 ```swift
 public class Entities
 {
-    public var age : [Age]?
-    public var cardinal : [Cardinal]?
-    public var color : [Color]?
-    public var datetime : [Datetime]?
-    public var distance : [Distance]?
-    public var duration : [Duration]?
-    public var email : [Email]?
-    public var ip : [IP]?
-    public var language : [Language]?
-    public var location : [Location]?
-    public var mass : [Mass]?
-    public var misc : [Misc]?
-    public var money : [Money]?
-    public var nationality : [Nationality]?
-    public var number : [Number]?
-    public var ordinal : [Ordinal]?
-    public var organization : [Organization]?
-    public var percent : [Percent]?
-    public var person : [Person]?
-    public var pronoun : [Pronoun]?
-    public var set : [Set]?
-    public var sort : [Sort]?
-    public var speed : [Speed]?
-    public var temperature : [Temperature]?
-    public var url : [Url]?
-    public var volume : [Volume]?
-    public var custom : [Custom]?
+    public var ages : [Age]?
+    public var cardinals : [Cardinal]?
+    public var colors : [Color]?
+    public var datetimes : [Datetime]?
+    public var distances : [Distance]?
+    public var durations : [Duration]?
+    public var emails : [Email]?
+    public var ips : [IP]?
+    public var languages : [Language]?
+    public var locations : [Location]?
+    public var masses : [Mass]?
+    public var miscs : [Misc]?
+    public var moneys : [Money]?
+    public var nationalities : [Nationality]?
+    public var numbers : [Number]?
+    public var ordinals : [Ordinal]?
+    public var organizations : [Organization]?
+    public var percents : [Percent]?
+    public var persons : [Person]?
+    public var pronouns : [Pronoun]?
+    public var sets : [Set]?
+    public var sorts : [Sort]?
+    public var speeds : [Speed]?
+    public var temperatures : [Temperature]?
+    public var urls : [Url]?
+    public var volumes : [Volume]?
+    public var customs : [Custom]?
 }
 ```
 
@@ -224,14 +213,14 @@ public var description: String
 }
 ```
 
-### Accessing Entities
+* **Accessing Entities**
 
-You can access entities from the first sentence this way :
+You can access `ages` entities from the first sentence this way :
 ```swift
-response.sentences![0].entities?.age.raw
+response.sentences![0].entities?.ages
 ```
 
-### Accessing Custom Entities
+* **Accessing Custom Entities**
 
 If you want to get custom entities you can do it this way : 
 ```swift
@@ -251,10 +240,14 @@ Output :
 Optional([Custom(value : star wars 8, raw : Star Wars 8)])
 ```
 
+### Error
 
-## MAN Recast.AI
+We will call `recastRequestError` with NSError as parameter.
+For more information about Recast Errors check out our [man#error](https://man.recast.ai/#request-text)
 
-For more details regarding the API please visit [man.recast.ai](https://man.recast.ai)
+## More
+
+You can view the whole API reference at [man.recast.ai](https://man.recast.ai)
 
 ## Author
 
@@ -264,4 +257,24 @@ You can follow us on Twitter at [@recastai](https://twitter.com/recastai) for up
 
 ## License
 
-RecastAI is available under the MIT license. See the LICENSE file for more info.
+RecastAI is available under the MIT license.
+
+Copyright (c) 2016 RecastAI
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

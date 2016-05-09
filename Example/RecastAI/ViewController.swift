@@ -18,14 +18,14 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
     @IBOutlet weak var requestTextField: UITextField!
     
     //Vars
-    var bot : RecastAPI?
+    var bot : RecastAIClient?
     var recording : Bool = true
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.bot = RecastAPI(token : "YOUR_BOT_TOKEN", handlerRecastRequestProtocol: self)
+        self.bot = RecastAIClient(token : "YOUR_BOT_TOKEN", handlerRecastRequestProtocol: self)
     }
     
     /**
@@ -38,6 +38,7 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
     func recastRequestDone(response : Response)
     {
         print(response.source)
+        print(response.intents)
     }
     
     /**
@@ -60,7 +61,7 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
         if (!(self.requestTextField.text?.isEmpty)!)
         {
             //Call makeRequest with string parameter to make a text request
-            self.bot?.makeRequest(self.requestTextField.text!)
+            self.bot?.textRequest(self.requestTextField.text!)
         }
     }
     
@@ -72,14 +73,14 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
         if (self.recording)
         {
             self.recording = !self.recording
-            //Call startVoiceRequest to start recording your voice
-            self.bot!.startVoiceRequest()
+            //Call startStreamRequest to start recording your voice
+            self.bot!.startStreamRequest()
         }
         else
         {
             self.recording = !self.recording
-            //Call stopVoiceRequest to stop recording your voice and launch the request to the Recast.AI API
-            self.bot!.stopVoiceRequest()
+            //Call stopStreamRequest to stop recording your voice and launch the request to the Recast.AI API
+            self.bot!.stopStreamRequest()
         }
     }
 }

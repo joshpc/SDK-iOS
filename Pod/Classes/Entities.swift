@@ -37,37 +37,38 @@ import JSONJoy
 - temperature
 - url
 - volume
+- custom
  */
 
 public class Entities
 {
-    public var age : [Age]?
-    public var cardinal : [Cardinal]?
-    public var color : [Color]?
-    public var datetime : [Datetime]?
-    public var distance : [Distance]?
-    public var duration : [Duration]?
-    public var email : [Email]?
-    public var ip : [IP]?
-    public var language : [Language]?
-    public var location : [Location]?
-    public var mass : [Mass]?
-    public var misc : [Misc]?
-    public var money : [Money]?
-    public var nationality : [Nationality]?
-    public var number : [Number]?
-    public var ordinal : [Ordinal]?
-    public var organization : [Organization]?
-    public var percent : [Percent]?
-    public var person : [Person]?
-    public var pronoun : [Pronoun]?
-    public var set : [Set]?
-    public var sort : [Sort]?
-    public var speed : [Speed]?
-    public var temperature : [Temperature]?
-    public var url : [Url]?
-    public var volume : [Volume]?
-    public var custom : [String:[Custom]]?
+    public var ages : [Age]?
+    public var cardinals : [Cardinal]?
+    public var colors : [Color]?
+    public var datetimes : [Datetime]?
+    public var distances : [Distance]?
+    public var durations : [Duration]?
+    public var emails : [Email]?
+    public var ips : [IP]?
+    public var languages : [Language]?
+    public var locations : [Location]?
+    public var masses : [Mass]?
+    public var miscs : [Misc]?
+    public var moneys : [Money]?
+    public var nationalities : [Nationality]?
+    public var numbers : [Number]?
+    public var ordinals : [Ordinal]?
+    public var organizations : [Organization]?
+    public var percents : [Percent]?
+    public var persons : [Person]?
+    public var pronouns : [Pronoun]?
+    public var sets : [Set]?
+    public var sorts : [Sort]?
+    public var speeds : [Speed]?
+    public var temperatures : [Temperature]?
+    public var urls : [Url]?
+    public var volumes : [Volume]?
+    public var customs : [String:[Custom]]?
     
     /**
      Init
@@ -79,247 +80,247 @@ public class Entities
         var customs = decoder.dictionary
         if let ag = decoder["age"].array
         {
-            self.age = [Age]()
+            self.ages = [Age]()
             for agDecoder in ag
             {
-                self.age?.append(Age(agDecoder))
+                self.ages?.append(Age(agDecoder))
             }
             customs?.removeValueForKey("age")
         }
         if let crdnl = decoder["cardinal"].array
         {
-            self.cardinal = [Cardinal]()
+            self.cardinals = [Cardinal]()
             for crdnlDecoder in crdnl
             {
-                self.cardinal?.append(Cardinal(crdnlDecoder))
+                self.cardinals?.append(Cardinal(crdnlDecoder))
             }
             customs?.removeValueForKey("cardinal")
         }
         if let clr = decoder["color"].array
         {
-            self.color = [Color]()
+            self.colors = [Color]()
             for clrDecoder in clr
             {
-                self.color?.append(Color(clrDecoder))
+                self.colors?.append(Color(clrDecoder))
             }
             customs?.removeValueForKey("color")
         }
         if let dttm = decoder["datetime"].array
         {
-            self.datetime = [Datetime]()
+            self.datetimes = [Datetime]()
             for dttmDecoder in dttm
             {
-                self.datetime?.append(Datetime(dttmDecoder))
+                self.datetimes?.append(Datetime(dttmDecoder))
             }
             customs?.removeValueForKey("datetime")
         }
         if let dstnc = decoder["distance"].array
         {
-            self.distance = [Distance]()
+            self.distances = [Distance]()
             for dstncDecoder in dstnc
             {
-                self.distance?.append(Distance(dstncDecoder))
+                self.distances?.append(Distance(dstncDecoder))
             }
             customs?.removeValueForKey("distance")
         }
         if let drtn = decoder["duration"].array
         {
-            self.duration = [Duration]()
+            self.durations = [Duration]()
             for drtnDecoder in drtn
             {
-                self.duration?.append(Duration(drtnDecoder))
+                self.durations?.append(Duration(drtnDecoder))
             }
             customs?.removeValueForKey("duration")
         }
         if let eml = decoder["email"].array
         {
-            self.email = [Email]()
+            self.emails = [Email]()
             for emlDecoder in eml
             {
-                self.email?.append(Email(emlDecoder))
+                self.emails?.append(Email(emlDecoder))
             }
             customs?.removeValueForKey("email")
         }
         if let ip = decoder["ip"].array
         {
-            self.ip = [IP]()
+            self.ips = [IP]()
             for ipDecoder in ip
             {
-                self.ip?.append(IP(ipDecoder))
+                self.ips?.append(IP(ipDecoder))
             }
             customs?.removeValueForKey("ip")
         }
         if let lngg = decoder["language"].array
         {
-            self.language = [Language]()
+            self.languages = [Language]()
             for lnggDecoder in lngg
             {
-                self.language?.append(Language(lnggDecoder))
+                self.languages?.append(Language(lnggDecoder))
             }
             customs?.removeValueForKey("language")
         }
         if let lctn = decoder["location"].array
         {
-            self.location = [Location]()
+            self.locations = [Location]()
             for lctnDecoder in lctn
             {
-                self.location?.append(Location(lctnDecoder))
+                self.locations?.append(Location(lctnDecoder))
             }
             customs?.removeValueForKey("location")
         }
         if let mss = decoder["mass"].array
         {
-            self.mass = [Mass]()
+            self.masses = [Mass]()
             for mssDecoder in mss
             {
-                self.mass?.append(Mass(mssDecoder))
+                self.masses?.append(Mass(mssDecoder))
             }
             customs?.removeValueForKey("mass")
         }
         if let msc = decoder["misc"].array
         {
-            self.misc = [Misc]()
+            self.miscs = [Misc]()
             for mscDecoder in msc
             {
-                self.misc?.append(Misc(mscDecoder))
+                self.miscs?.append(Misc(mscDecoder))
             }
             customs?.removeValueForKey("misc")
         }
         if let mn = decoder["money"].array
         {
-            self.money = [Money]()
+            self.moneys = [Money]()
             for mnDecoder in mn
             {
-                self.money?.append(Money(mnDecoder))
+                self.moneys?.append(Money(mnDecoder))
             }
             customs?.removeValueForKey("money")
         }
         if let ntnlt = decoder["nationality"].array
         {
-            self.nationality = [Nationality]()
+            self.nationalities = [Nationality]()
             for ntnltDecoder in ntnlt
             {
-                self.nationality?.append(Nationality(ntnltDecoder))
+                self.nationalities?.append(Nationality(ntnltDecoder))
             }
             customs?.removeValueForKey("nationality")
         }
         if let nmbr = decoder["number"].array
         {
-            self.number = [Number]()
+            self.numbers = [Number]()
             for nmbrDecoder in nmbr
             {
-                self.number?.append(Number(nmbrDecoder))
+                self.numbers?.append(Number(nmbrDecoder))
             }
             customs?.removeValueForKey("number")
         }
         if let ordnl = decoder["ordinal"].array
         {
-            self.ordinal = [Ordinal]()
+            self.ordinals = [Ordinal]()
             for ordnlDecoder in ordnl
             {
-                self.ordinal?.append(Ordinal(ordnlDecoder))
+                self.ordinals?.append(Ordinal(ordnlDecoder))
             }
             customs?.removeValueForKey("ordinal")
         }
         if let orgnztn = decoder["organization"].array
         {
-            self.organization = [Organization]()
+            self.organizations = [Organization]()
             for orgnztnDecoder in orgnztn
             {
-                self.organization?.append(Organization(orgnztnDecoder))
+                self.organizations?.append(Organization(orgnztnDecoder))
             }
             customs?.removeValueForKey("organization")
         }
         if let prcnt = decoder["percent"].array
         {
-            self.percent = [Percent]()
+            self.percents = [Percent]()
             for prcntDecoder in prcnt
             {
-                self.percent?.append(Percent(prcntDecoder))
+                self.percents?.append(Percent(prcntDecoder))
             }
             customs?.removeValueForKey("percent")
         }
         if let prsn = decoder["person"].array
         {
-            self.person = [Person]()
+            self.persons = [Person]()
             for prsnDecoder in prsn
             {
-                self.person?.append(Person(prsnDecoder))
+                self.persons?.append(Person(prsnDecoder))
             }
             customs?.removeValueForKey("person")
         }
         if let prnn = decoder["pronoun"].array
         {
-            self.pronoun = [Pronoun]()
+            self.pronouns = [Pronoun]()
             for prnnDecoder in prnn
             {
-                self.pronoun?.append(Pronoun(prnnDecoder))
+                self.pronouns?.append(Pronoun(prnnDecoder))
             }
             customs?.removeValueForKey("pronoun")
         }
         if let st = decoder["set"].array
         {
-            self.set = [Set]()
+            self.sets = [Set]()
             for stDecoder in st
             {
-                self.set?.append(Set(stDecoder))
+                self.sets?.append(Set(stDecoder))
             }
             customs?.removeValueForKey("set")
         }
         if let srt = decoder["sort"].array
         {
-            self.sort = [Sort]()
+            self.sorts = [Sort]()
             for srtDecoder in srt
             {
-                self.sort?.append(Sort(srtDecoder))
+                self.sorts?.append(Sort(srtDecoder))
             }
             customs?.removeValueForKey("sort")
         }
         if let spd = decoder["speed"].array
         {
-            self.speed = [Speed]()
+            self.speeds = [Speed]()
             for spdDecoder in spd
             {
-                self.speed?.append(Speed(spdDecoder))
+                self.speeds?.append(Speed(spdDecoder))
             }
             customs?.removeValueForKey("speed")
         }
         if let tmprtr = decoder["temperature"].array
         {
-            self.temperature = [Temperature]()
+            self.temperatures = [Temperature]()
             for tmprtrDecoder in tmprtr
             {
-                self.temperature?.append(Temperature(tmprtrDecoder))
+                self.temperatures?.append(Temperature(tmprtrDecoder))
             }
             customs?.removeValueForKey("temperature")
         }
         if let url = decoder["url"].array
         {
-            self.url = [Url]()
+            self.urls = [Url]()
             for urlDecoder in url
             {
-                self.url?.append(Url(urlDecoder))
+                self.urls?.append(Url(urlDecoder))
             }
             customs?.removeValueForKey("url")
         }
         if let vlm = decoder["volume"].array
         {
-            self.volume = [Volume]()
+            self.volumes = [Volume]()
             for vlmDecoder in vlm
             {
-                self.volume?.append(Volume(vlmDecoder))
+                self.volumes?.append(Volume(vlmDecoder))
             }
             customs?.removeValueForKey("volume")
         }
         if customs?.isEmpty == false
         {
-            self.custom = [String:[Custom]]()
+            self.customs = [String:[Custom]]()
             for (key, entities) in customs ?? [:]
             {
-                self.custom?[key] = []
+                self.customs?[key] = []
                 for entity in entities.array!
                 {
-                    self.custom?[key]?.append(Custom(entity))
+                    self.customs?[key]?.append(Custom(entity))
                 }
             }
         }

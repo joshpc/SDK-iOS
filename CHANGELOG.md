@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file.
 
 ---
+## [2.0.0](https://github.com/RecastAI/SDK-ios/releases/tag/2.0.0)
+
+#### Features
+
+* Fix voice request
+* Add raw attribute to Response class
+* Rename methods
+* Remove unused pod
+* Update README
+
 ## [1.4.2](https://github.com/RecastAI/SDK-ios/releases/tag/1.4.2)
 
 #### Features

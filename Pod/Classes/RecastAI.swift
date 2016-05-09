@@ -9,12 +9,11 @@
 import Foundation
 import JSONJoy
 import Alamofire
-import SwiftWebSocket
 
 /**
- RecastAPI class handling request to the API
+ RecastAIClient class handling request to the API
  */
-public class RecastAPI
+public class RecastAIClient
 {
     private let url : String = "https://api.recast.ai/v1/request"
     private let url_voice : String = "ws://api.recast.ai/v1/request"
@@ -44,7 +43,7 @@ public class RecastAPI
      
      - returns: void
      */
-    public func makeRequest(request : String)
+    public func textRequest(request : String)
     {
         let param = ["text" : request]
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -64,6 +63,8 @@ public class RecastAPI
                 dispatch_async(dispatch_get_main_queue())
                 {
                     let res = Results(JSONDecoder(response.data!))
+                    let json = try! NSJSONSerialization.JSONObjectWithData(response.data!,  options:NSJSONReadingOptions.MutableContainers) as! [String : AnyObject]
+                    res.results?.raw = json["results"] as? [String : AnyObject]
                     self.delegate?.recastRequestDone(res.results!)
                 }
         }
@@ -74,7 +75,7 @@ public class RecastAPI
      
      - returns: void
      */
-    public func startVoiceRequest()
+    public func startStreamRequest()
     {
         audio.recordAudio()
     }
@@ -84,7 +85,7 @@ public class RecastAPI
      
      - returns: void
      */
-    public func stopVoiceRequest()
+    public func stopStreamRequest()
     {
         audio.stopAudio()
         let headers = ["Authorization": "Token " + self.token]
@@ -100,7 +101,8 @@ public class RecastAPI
                 case .Success(let upload, _, _):
                     upload.responseJSON { response in
                         debugPrint(response)
-                        self.delegate?.recastRequestDone(Response(JSONDecoder(response.data!)))
+                        let res = Results(JSONDecoder(response.data!))
+                        self.delegate?.recastRequestDone(res.results!)
                     }
                 case .Failure(let encodingError):
                     print(encodingError)

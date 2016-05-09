@@ -22,6 +22,7 @@ public class Response
     public var version : String?
     public var timestamp : String?
     public var status : Int?
+    public var raw : [String : AnyObject]?
     
     /**
      Init

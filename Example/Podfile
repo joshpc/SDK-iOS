@@ -6,13 +6,11 @@ xcodeproj 'RecastAI.xcodeproj'
 target 'RecastAI_Example', :exclusive => true do
   pod 'RecastAI', :path => '../'
   pod 'JSONJoy-Swift'
-  pod 'SwiftWebSocket'
   pod 'Alamofire'
 end
 
 target 'RecastAI_Tests', :exclusive => true do
   pod 'RecastAI', :path => '../'
-
   pod 'Quick', '~> 0.8'
   pod 'Nimble', '~> 3.0'
 end

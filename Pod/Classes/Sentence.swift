@@ -22,9 +22,7 @@ public class Sentence
     public var action : String?
     public var agent : String?
     public var entities : Entities?
-    
-    init () {}
-    
+        
     /**
      Init
      

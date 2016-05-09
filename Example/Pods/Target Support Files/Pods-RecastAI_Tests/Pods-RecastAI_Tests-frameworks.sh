@@ -87,7 +87,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-RecastAI_Tests/Alamofire.framework"
   install_framework "Pods-RecastAI_Tests/JSONJoy.framework"
   install_framework "Pods-RecastAI_Tests/RecastAI.framework"
-  install_framework "Pods-RecastAI_Tests/SwiftWebSocket.framework"
   install_framework "Pods-RecastAI_Tests/Nimble.framework"
   install_framework "Pods-RecastAI_Tests/Quick.framework"
 fi
@@ -95,7 +94,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-RecastAI_Tests/Alamofire.framework"
   install_framework "Pods-RecastAI_Tests/JSONJoy.framework"
   install_framework "Pods-RecastAI_Tests/RecastAI.framework"
-  install_framework "Pods-RecastAI_Tests/SwiftWebSocket.framework"
   install_framework "Pods-RecastAI_Tests/Nimble.framework"
   install_framework "Pods-RecastAI_Tests/Quick.framework"
 fi
