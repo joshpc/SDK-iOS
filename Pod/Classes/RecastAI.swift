@@ -18,6 +18,7 @@ public class RecastAIClient
     private let url : String = "https://api.recast.ai/v1/request"
     private let url_voice : String = "ws://api.recast.ai/v1/request"
     private let token : String
+    private let language : String?
     private weak var delegate : HandlerRecastRequestProtocol?
     private weak var delegateVoiceFile : HandlerRecastRequestProtocol?
     var audio : AudioFile = AudioFile()
@@ -30,10 +31,11 @@ public class RecastAIClient
      
      - returns: void
      */
-    public init (token : String, handlerRecastRequestProtocol : HandlerRecastRequestProtocol)
+    public init (token : String, handlerRecastRequestProtocol : HandlerRecastRequestProtocol, language : String? = nil)
     {
         self.token = token
         self.delegate = handlerRecastRequestProtocol
+        self.language = language
     }
     
     /**
@@ -43,9 +45,17 @@ public class RecastAIClient
      
      - returns: void
      */
-    public func textRequest(request : String)
+    public func textRequest(request : String, lang: String? = nil)
     {
-        let param = ["text" : request]
+        var param = ["text" : request]
+        if let ln = lang
+        {
+            param = ["text" : request, "language" : lang!]
+        }
+        else if let ln = self.language
+        {
+            param = ["text" : request, "language" : self.language!]
+        }
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         Alamofire.request(.POST, self.url, parameters: param, headers: ["Authorization" : "Token " + self.token])
             .response { _, _, _, error in
@@ -89,6 +99,11 @@ public class RecastAIClient
     {
         audio.stopAudio()
         let headers = ["Authorization": "Token " + self.token]
+        let parameters : [String : String]
+        if let ln = self.language
+        {
+            parameters = ["language" : self.language!]
+        }
         Alamofire.upload(
             .POST,
             self.url,

@@ -36,8 +36,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ### RecastAIClient
 
-This class handles everything. Create a RecastAIClient object and init it with your token and a class that implements the `HandlerRecastRequestProtocol` Protocol.
-
+This class handles everything. Create a RecastAIClient object and init it with your token and a class that implements the `HandlerRecastRequestProtocol` Protocol. The RecastAIClient can also be instanciated with a language (optional).
 ```swift
 import RecastAI
 
@@ -50,23 +49,25 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        //Initialise bot with token & handlerRecastProtocol
-        self.bot = RecastAIClient(token : "YOUR_BOT_TOKEN", handlerRecastRequestProtocol: self)
+        //Initialise bot with token & handlerRecastProtocol with and without a language as a parameter
+        self.bot = RecastAIClient(token: YOUR_BOT_TOKEN, handlerRecastRequestProtocol: <#T##HandlerRecastRequestProtocol#>)
+        self.bot = RecastAIClient(token: YOUR_BOT_TOKEN, handlerRecastRequestProtocol: <#T##HandlerRecastRequestProtocol#>, language: <#T##String?#>)
     }
 }
 ```
 
 * **Text Request**
 
-The `textRequest` method allows you to make a request to the Recast.AI API. The `textRequest` method is to make a **Text** request and takes a `String` as parameter.
+The `textRequest` method allows you to make a request to the Recast.AI API. The `textRequest` method is to make a **Text** request and takes a **text** as a `String` as parameter and a **language** as a `String` as an **optional parameter**. If no language is provided in the request, the language of the text is detected and is used for processing if your bot has expressions for it, else your bot's primary language is used for processing.
 ```swift
 /**
 Make text request to Recast.AI API
 */
 @IBAction func makeRequest()
 {
-    //Call makeRequest with string parameter to make a text request
+    //Call makeRequest with string parameter to make a text request with and without language as a parameter
     self.bot?.textRequest(<#T##request: String##String#>)
+    self.bot?.textRequest(<#T##request: String##String#>, lang: <#T##String?#>)
 }
 ```
 
@@ -151,6 +152,7 @@ public class Response
     public var source : String?
     public var intents : [String]?
     public var sentences : [Sentence]?
+    public var language : String?
     public var version : String?
     public var timestamp : String?
     public var status : Int?
@@ -189,6 +191,7 @@ public class Entities
     public var durations : [Duration]?
     public var emails : [Email]?
     public var ips : [IP]?
+    public var jobs : [Job]?
     public var languages : [Language]?
     public var locations : [Location]?
     public var masses : [Mass]?

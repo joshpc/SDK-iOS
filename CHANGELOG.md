@@ -2,11 +2,16 @@
 All notable changes to this project will be documented in this file.
 
 ---
-## [2.0.2](https://github.com/RecastAI/SDK-ios/releases/tag/2.0.2)
+## [2.1.1](https://github.com/RecastAI/SDK-ios/releases/tag/2.1.1)
 
 #### Features
 
-* Minor changes
+* Add job entity
+* Add multinlangual support
+
+## [2.0.2](https://github.com/RecastAI/SDK-ios/releases/tag/2.0.2)
+
+#### Features
 
 ## [2.0.1](https://github.com/RecastAI/SDK-ios/releases/tag/2.0.1)
 

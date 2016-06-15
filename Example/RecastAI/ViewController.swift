@@ -26,6 +26,7 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.bot = RecastAIClient(token : "YOUR_BOT_TOKEN", handlerRecastRequestProtocol: self)
+        self.bot = RecastAIClient(token : "YOUR_BOT_TOKEN", handlerRecastRequestProtocol: self, language: "en")
     }
     
     /**
@@ -38,6 +39,7 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
     func recastRequestDone(response : Response)
     {
         print(response.source)
+        print(response.language)
         print(response.intents)
     }
     
@@ -62,6 +64,7 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
         {
             //Call makeRequest with string parameter to make a text request
             self.bot?.textRequest(self.requestTextField.text!)
+            self.bot?.textRequest(self.requestTextField.text!, lang: "en")
         }
     }
     

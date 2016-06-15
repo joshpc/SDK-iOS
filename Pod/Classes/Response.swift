@@ -19,6 +19,7 @@ public class Response
     public var source : String?
     public var intents : [String]?
     public var sentences : [Sentence]?
+    public var language : String?
     public var version : String?
     public var timestamp : String?
     public var status : Int?
@@ -48,6 +49,7 @@ public class Response
                 self.sentences?.append(Sentence(sntncsDecoder))
             }
         }
+        self.language = decoder["language"].string
         self.version = decoder["version"].string
         self.timestamp = decoder["timestamp"].string
         self.status = decoder["status"].integer

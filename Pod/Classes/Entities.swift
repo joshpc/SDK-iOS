@@ -51,6 +51,7 @@ public class Entities
     public var emails : [Email]?
     public var ips : [IP]?
     public var languages : [Language]?
+    public var jobs : [Job]?
     public var locations : [Location]?
     public var masses : [Mass]?
     public var miscs : [Misc]?
@@ -149,6 +150,15 @@ public class Entities
                 self.ips?.append(IP(ipDecoder))
             }
             customs?.removeValueForKey("ip")
+        }
+        if let jb = decoder["job"].array
+        {
+            self.jobs = [Job]()
+            for jbDecoder in jb
+            {
+                self.jobs?.append(Job(jbDecoder))
+            }
+            customs?.removeValueForKey("job")
         }
         if let lngg = decoder["language"].array
         {
@@ -543,6 +553,32 @@ public struct IP : CustomStringConvertible
         self.formated = decoder["formated"].string!
         self.lat = decoder["lat"].float!
         self.lng = decoder["lng"].float!
+        self.raw = decoder["raw"].string!
+    }
+}
+
+/**
+ Struct Job
+ 
+ Examples :	CTO, farmer, financial accoutant
+ 
+ Key:
+ - value: String, the downcased job
+ - raw: The raw value extracted for the sentence
+ */
+public struct Job : CustomStringConvertible
+{
+    public let value : String
+    public let raw : String
+    
+    public var description: String
+    {
+        return "Job(code : \(value), raw : \(raw))"
+    }
+    
+    init (_ decoder : JSONDecoder)
+    {
+        self.value = decoder["code"].string!
         self.raw = decoder["raw"].string!
     }
 }
