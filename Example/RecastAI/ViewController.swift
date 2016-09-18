@@ -12,7 +12,7 @@ import RecastAI
 /**
 Class ViewController Example of implementations for Text & Voice Requests
  */
-class ViewController: UIViewController, HandlerRecastRequestProtocol
+class ViewController: UIViewController
 {
     //Outlets
     @IBOutlet weak var requestTextField: UITextField!
@@ -25,8 +25,8 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.bot = RecastAIClient(token : "YOUR_BOT_TOKEN", handlerRecastRequestProtocol: self)
-        self.bot = RecastAIClient(token : "YOUR_BOT_TOKEN", handlerRecastRequestProtocol: self, language: "en")
+        self.bot = RecastAIClient(token : "512f707a5a4af678656255dafa17fd60")
+        self.bot = RecastAIClient(token : "512f707a5a4af678656255dafa17fd60", language: "en")
     }
     
     /**
@@ -36,9 +36,12 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
      
      - returns: void
      */
-    func recastRequestDone(response : Response)
+    func recastRequestDone(_ response : Response)
     {
-        print(response.source)
+        print(response)
+        let flower = response.get(entity: "flower-type")
+        print(response.get(entity: "flower-type"))
+        print(response.get(entity: "flower-type"))
         print(response.language)
         print(response.intents)
     }
@@ -50,9 +53,9 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
      
      - returns: void
      */
-    func recastRequestError(error : NSError)
+    func recastRequestError(_ error : Error)
     {
-        print("Delegate Error : \(error)")
+        print("Error : \(error)")
     }
     
     /**
@@ -63,8 +66,8 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
         if (!(self.requestTextField.text?.isEmpty)!)
         {
             //Call makeRequest with string parameter to make a text request
-            self.bot?.textRequest(self.requestTextField.text!)
-            self.bot?.textRequest(self.requestTextField.text!, lang: "en")
+            self.bot?.textRequest(self.requestTextField.text!, successHandler: recastRequestDone, failureHandle: recastRequestError)
+//            self.bot?.textRequest(self.requestTextField.text!, lang: "en")
         }
     }
     
@@ -77,13 +80,13 @@ class ViewController: UIViewController, HandlerRecastRequestProtocol
         {
             self.recording = !self.recording
             //Call startStreamRequest to start recording your voice
-            self.bot!.startStreamRequest()
+//            self.bot!.startStreamRequest()
         }
         else
         {
             self.recording = !self.recording
             //Call stopStreamRequest to stop recording your voice and launch the request to the Recast.AI API
-            self.bot!.stopStreamRequest()
+//            self.bot!.stopStreamRequest()
         }
     }
 }

@@ -7,125 +7,100 @@
 //  pierre-edouard.lieb@recast.ai
 
 import Foundation
-import JSONJoy
 import Alamofire
 
 /**
- RecastAIClient class handling request to the API
+RecastAIClient class handling request to the API
  */
 public class RecastAIClient
 {
-    private let url : String = "https://api.recast.ai/v1/request"
-    private let url_voice : String = "ws://api.recast.ai/v1/request"
-    private let token : String
-    private let language : String?
-    private weak var delegate : HandlerRecastRequestProtocol?
-    private weak var delegateVoiceFile : HandlerRecastRequestProtocol?
-    var audio : AudioFile = AudioFile()
+    static fileprivate let url : String = "https://api.recast.ai/v1/request"
+    static fileprivate let url_voice : String = "ws://api.recast.ai/v1/request"
+    fileprivate let token : String
+    fileprivate let language : String?
     
     /**
-     Init RecastAPI Class for text
+     Init RecastAIClient Class
      
      - parameter token: your bot token
-     - parameter handlerRecastRequestProtocol: class that handles the protocol
+     - parameter language: language of sentenses if needed
      
-     - returns: void
+     - returns: RecastAIClient
      */
-    public init (token : String, handlerRecastRequestProtocol : HandlerRecastRequestProtocol, language : String? = nil)
+    public init (token : String, language : String? = nil)
     {
         self.token = token
-        self.delegate = handlerRecastRequestProtocol
         self.language = language
     }
     
     /**
-     Make a request to Recast API
+     Make a text request to Recast API
      
      - parameter request: sentence to send to Recast API
+     - parameter lang: lang of the sentence if needed
+     - parameter successHandler: closure called when request succeed
+     - parameter failureHandler: closure called when request failed
      
      - returns: void
      */
-    public func textRequest(request : String, lang: String? = nil)
+    public func textRequest(_ request : String, lang: String? = nil, successHandler: @escaping (Response) -> Void, failureHandle: @escaping (Error) -> Void)
     {
+        let headers = ["Authorization" : "Token " + self.token]
         var param = ["text" : request]
         if let ln = lang
         {
-            param = ["text" : request, "language" : lang!]
+            param["language"] = ln
         }
         else if let ln = self.language
         {
-            param = ["text" : request, "language" : self.language!]
+            param["language"] = ln
         }
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        Alamofire.request(.POST, self.url, parameters: param, headers: ["Authorization" : "Token " + self.token])
-            .response { _, _, _, error in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                if let error = error {
-                    dispatch_async(dispatch_get_main_queue())
-                    {
-                        debugPrint("\(error)")
-                        self.delegate?.recastRequestError(error)
-                    }
-                }
+        Alamofire.request(RecastAIClient.url, method: .post, parameters: param, headers: headers).responseJSON {
+            response in
+            switch response.result {
+                case .success(let value):
+                    let recastResponse = Response(json: value as! [String : AnyObject])
+                    successHandler(recastResponse)
+                case .failure(let error):
+                    failureHandle(error)
+            }
         }
-            .responseJSON { response in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                dispatch_async(dispatch_get_main_queue())
-                {
-                    let res = Results(JSONDecoder(response.data!))
-                    let json = try! NSJSONSerialization.JSONObjectWithData(response.data!,  options:NSJSONReadingOptions.MutableContainers) as! [String : AnyObject]
-                    res.results?.raw = json["results"] as? [String : AnyObject]
-                    self.delegate?.recastRequestDone(res.results!)
-                }
-        }
-    }
- 
-    /**
-     Start voice recording
-     
-     - returns: void
-     */
-    public func startStreamRequest()
-    {
-        audio.recordAudio()
     }
     
     /**
-     Stop voice recording and make the request to Recast.AI API and parse JSON response into Response object
+     Make a voice request to Recast API
+     
+     - parameter audioFileURL: audio file URL to send to RecastAI
+     - parameter lang: lang of the sentence if needed
+     - parameter successHandler: closure called when request succeed
+     - parameter failureHandler: closure called when request failed
      
      - returns: void
      */
-    public func stopStreamRequest()
-    {
-        audio.stopAudio()
+    public func voiceRequest(_ audioFileURL: URL, lang: String? = nil, successHandler: @escaping (Response) -> Void, failureHandle: @escaping (Error) -> Void) {
         let headers = ["Authorization": "Token " + self.token]
-        let parameters : [String : String]
-        if let ln = self.language
-        {
-            parameters = ["language" : self.language!]
-        }
-        Alamofire.upload(
-            .POST,
-            self.url,
-            headers: headers,
-            multipartFormData: { multipartFormData in
-                multipartFormData.appendBodyPart(fileURL: self.audio.path, name: "voice")
-            },
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .Success(let upload, _, _):
-                    upload.responseJSON { response in
-                        debugPrint(response)
-                        let res = Results(JSONDecoder(response.data!))
-                        self.delegate?.recastRequestDone(res.results!)
+        Alamofire.upload(multipartFormData: { multipartFormData in
+        multipartFormData.append(audioFileURL, withName: "voice")
+        },
+        to: RecastAIClient.url,
+        method: .post,
+        headers: headers,
+        encodingCompletion: { encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    switch response.result {
+                    case .success(let value):
+                        let recastResponse = Response(json: value as! [String : AnyObject])
+                        successHandler(recastResponse)
+                    case .failure(let error):
+                        failureHandle(error)
                     }
-                case .Failure(let encodingError):
-                    print(encodingError)
-                    let er = encodingError as NSError
-                    self.delegate?.recastRequestError(er)
                 }
+            case .failure(let encodingError):
+                        failureHandle(encodingError)
             }
-        )
+        })
     }
 }
 

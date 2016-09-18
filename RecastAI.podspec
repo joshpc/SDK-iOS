@@ -27,7 +27,7 @@ s.author           = { "Pierre-Edouard Lieb" => "pierre-edouard.lieb@recast.ai" 
 s.source           = { :git => "https://github.com/RecastAI/SDK-ios.git", :tag => s.version.to_s }
 s.social_media_url = 'https://twitter.com/recastai'
 
-s.platform     = :ios, '8.0'
+s.platform     = :ios, '10.0'
 s.requires_arc = true
 
 s.source_files = 'Pod/Classes/**/*'
@@ -37,6 +37,5 @@ s.resource_bundles = {
 
 # s.public_header_files = 'Pod/Classes/**/*.h'
 # s.frameworks = 'UIKit', 'MapKit'
-s.dependency 'JSONJoy-Swift'
 s.dependency 'Alamofire'
 end

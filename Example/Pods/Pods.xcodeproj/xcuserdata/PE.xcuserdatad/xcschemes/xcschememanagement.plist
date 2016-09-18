@@ -9,27 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>JSONJoy-Swift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Nimble.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-RecastAI_Example.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-RecastAI_Tests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Quick.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,42 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>44AF7D0689D8731D470A7010E723AD0D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6EC608460F536F9129D7003B268A104C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>74D746023527F3EEA56BFD71F01F77C1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>87EEEA0F1673C73C8A92E18B74668095</key>
+		<key>81CA678A54A62EFD1F66993B0436F399</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8D02F97501E6E7C64C03BD488048E4AC</key>
+		<key>908BDE9744E5A1B8B4D1B73A21C73A4F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BAEB486141E929A49DD576C14824EDAE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FF61C7C740C1B196A3B33F37B77DBC68</key>
+		<key>DEE454485CF93FF0E78733B60FF79321</key>
 		<dict>
 			<key>primary</key>
 			<true/>
