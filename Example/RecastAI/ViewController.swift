@@ -19,14 +19,13 @@ class ViewController: UIViewController
     
     //Vars
     var bot : RecastAIClient?
-    var recording : Bool = true
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.bot = RecastAIClient(token : "512f707a5a4af678656255dafa17fd60")
-        self.bot = RecastAIClient(token : "512f707a5a4af678656255dafa17fd60", language: "en")
+        self.bot = RecastAIClient(token : "YOUR_TOKEN")
+        self.bot = RecastAIClient(token : "YOUR_TOKEN", language: "en")
     }
     
     /**
@@ -39,11 +38,9 @@ class ViewController: UIViewController
     func recastRequestDone(_ response : Response)
     {
         print(response)
-        let flower = response.get(entity: "flower-type")
-        print(response.get(entity: "flower-type"))
-        print(response.get(entity: "flower-type"))
         print(response.language)
-        print(response.intents)
+        print(response.intent())
+        print(response.entities)
     }
     
     /**
@@ -67,26 +64,19 @@ class ViewController: UIViewController
         {
             //Call makeRequest with string parameter to make a text request
             self.bot?.textRequest(self.requestTextField.text!, successHandler: recastRequestDone, failureHandle: recastRequestError)
-//            self.bot?.textRequest(self.requestTextField.text!, lang: "en")
         }
     }
     
     /**
-     Make Voice request to Recast.AI API
+     Make File request to Recast.AI API
      */
-    @IBAction func makeVoiceRequest()
+    func makeFileRequest()
     {
-        if (self.recording)
+        if (!(self.requestTextField.text?.isEmpty)!)
         {
-            self.recording = !self.recording
-            //Call startStreamRequest to start recording your voice
-//            self.bot!.startStreamRequest()
-        }
-        else
-        {
-            self.recording = !self.recording
-            //Call stopStreamRequest to stop recording your voice and launch the request to the Recast.AI API
-//            self.bot!.stopStreamRequest()
+            let url = URL(string: self.requestTextField.text!)!
+            //Call makeRequest with string parameter to make a text request
+            self.bot?.fileRequest(url, successHandler: recastRequestDone, failureHandle: recastRequestError)
         }
     }
 }

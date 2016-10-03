@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 
 ---
+## [3.0.1](https://github.com/RecastAI/SDK-ios/releases/tag/3.0.0)
+
+#### Features
+
+* JSON v2
+* Overall redo pod
+
 ## [2.1.1](https://github.com/RecastAI/SDK-ios/releases/tag/2.1.1)
 
 #### Features

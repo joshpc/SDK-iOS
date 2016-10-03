@@ -10,14 +10,18 @@
 
 Recast.AI official SDK in Swift.
 
+## 42 Swift Pool
+
+If you are working with Swift 2.0+ use this version : ~> 2.1.1 ! 
+
 ## Synospis
 
-This pod is a Swift interface to the Recast.AI API. It allows you to make requests to your bots.
+This pod is a Swift interface to the [Recast.AI](https://recast.ai) API. It allows you to make requests to your bots.
 
 ## Requirements
 
-- iOS 8.0+
-- Xcode 7.2+
+- iOS 10.0+
+- Xcode 8.0+
 
 ## Installation
 
@@ -32,90 +36,114 @@ pod "RecastAI"
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Specs
-
 ### RecastAIClient
 
-This class handles everything. Create a RecastAIClient object and init it with your token and a class that implements the `HandlerRecastRequestProtocol` Protocol. The RecastAIClient can also be instanciated with a language (optional).
+This class handles everything. Create a RecastAIClient object and init it with your token. The RecastAIClient can also be instanciated with a language (optional).
 ```swift
 import RecastAI
 
-class ViewController: UIViewController, HandlerRecastRequestProtocol
+class ViewController: UIViewController
 {
+    //Vars
     var bot : RecastAIClient?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
-        //Initialise bot with token & handlerRecastProtocol with and without a language as a parameter
-        self.bot = RecastAIClient(token: YOUR_BOT_TOKEN, handlerRecastRequestProtocol: <#T##HandlerRecastRequestProtocol#>)
-        self.bot = RecastAIClient(token: YOUR_BOT_TOKEN, handlerRecastRequestProtocol: <#T##HandlerRecastRequestProtocol#>, language: <#T##String?#>)
+        self.bot = RecastAIClient(token : "YOUR_TOKEN")
+        self.bot = RecastAIClient(token : "YOUR_TOKEN", language: "YOUR_LANGUAGE")
     }
 }
 ```
 
-* **Text Request**
+## Specs
 
-The `textRequest` method allows you to make a request to the Recast.AI API. The `textRequest` method is to make a **Text** request and takes a **text** as a `String` as parameter and a **language** as a `String` as an **optional parameter**. If no language is provided in the request, the language of the text is detected and is used for processing if your bot has expressions for it, else your bot's primary language is used for processing.
+### Classes
+
+This module contains 3 classes, as follows:
+
+* Client is the client allowing you to make requests.
+* Response contains the response from [Recast.AI](https://recast.ai).
+* Intent represents an Intent of the response
+
+Don't hesitate to dive into the code, it's commented ;)
+
+## class Client
+
+The Client can be instanciated with a token and a language (both optional).
+
+```swift
+let bot = RecastAIClient(token : "YOUR_TOKEN", language: "YOU_LANGUAGE")
+```
+
+__Your tokens:__
+
+[token]: https://github.com/RecastAI/SDK-NodeJs/blob/master/misc/recast-ai-tokens.png "Tokens"
+
+![alt text][token]
+
+*Copy paste your request access token from your bot's settings.*
+
+__Your language__
+
+```swift
+let bot = RecastAIClient(token : "YOUR_TOKEN", language: "en")
+```
+*The language is a lowercase 639-1 isocode.*
+
+## Text Request
+
+The `textRequest` method allows you to make a request to the Recast.AI API. The `textRequest` method is to make a **Text** request and takes a **text** as a `String` as parameter and a **language** as a `String` or a `Token` as **optional parameters**. You also need to provide a `successHandle` and a `failureHandle` functions that will be called when either the request is done or the request fails.
+If you pass a token or a language in the options parameter, it will override your default client language or token.
+
+
 ```swift
 /**
 Make text request to Recast.AI API
 */
-@IBAction func makeRequest()
+func makeRequest()
 {
-    //Call makeRequest with string parameter to make a text request with and without language as a parameter
-    self.bot?.textRequest(<#T##request: String##String#>)
-    self.bot?.textRequest(<#T##request: String##String#>, lang: <#T##String?#>)
+    //Call makeRequest with string parameter to make a text request
+    self.bot?.textRequest(<#T##request: String##String#>, successHandler: <#T##(Response) -> Void#>, failureHandle: <#T##(Error) -> Void#>)
 }
 ```
 
-* **Stream Request**
+__If a language is provided:__ the language you've given is used for processing if your bot has expressions for it, else your bot's primary language is used.
 
-In order to make a **Voice** Request you need to implement two methods `startStreamRequest` & `stopStreamRequest`. `startStreamRequest` will start recording your **voice** and `stopStreamRequest` will stop recording your **voice** and send the request to the Recast.AI API.
+__If no language is provided:__ the language of the text is detected and is used for processing if your bot has expressions for it, else your bot's primary language is used for processing.
+
+## File Request
+
+In order to make a **File** Request you need to implement two methods you need to pass a file as a parameter. You also need to provide a `successHandle` and a `failureHandle` functions that will be called when either the request is done or the request fails.
+If you pass a token or a language in the options parameter, it will override your default client language or token.
+
+__file format: .wav__
 
 ```swift
-//Bool to check if currently recording voice 
-var recording : Bool = true
-
 /**
-Make Voice request to Recast.AI API
+Make File request to Recast.AI API
 */
-@IBAction func makeVoiceRequest()
+func makeFileRequest()
 {
-    if (self.recording)
+    if (!(self.requestTextField.text?.isEmpty)!)
     {
-        self.recording = !self.recording
-        //Call startStreamRequest to start recording your voice
-        self.bot!.startStreamRequest()
-    }
-    else
-    {
-        self.recording = !self.recording
-        //Call stopStreamRequest to stop recording your voice and launch the request to the Recast.AI API
-        self.bot!.stopStreamRequest()
+        let url = URL(string: self.requestTextField.text!)!
+        //Call makeRequest with string parameter to make a text request
+        self.bot?.fileRequest(<#T##audioFileURL: URL##URL#>, successHandler: <#T##(Response) -> Void#>, failureHandle: <#T##(Error) -> Void#>)
     }
 }
 ```
 
-* **handlerRecastRequestProtocol**
+## class Response
 
-In order to comply with the handlerRecastRequestProtocol you need to implement `recastRequestDone` & `recastRequestError`.
-- `recastRequestDone` is called when the request was successful with the Response in parameter
-- `recastRequestError` is called when the request failed with the error in parameter
-```swift
-public protocol HandlerRecastRequestProtocol : class
-{
-    //If success
-    func recastRequestDone(response : Response)
-    
-    //If failure
-    func recastRequestError(error : NSError)
-}
-```
+The Response is generated after a call to either fileRequest or textRequest.
 
-Implement those metods in your ViewController. 
+### Get the first detected intent
+
+| Method        | Params | Return                    |
+| ------------- |:------:| :-------------------------|
+| intent()      |        | Object: the first detected intent |
 
 ```swift
 /**
@@ -125,133 +153,129 @@ Method called when the request was successful
 
 - returns: void
 */
-func recastRequestDone(response : Response)
+func recastRequestDone(_ response : Response)
 {
-    print(response.source)
+    let intent = response.intent()
+    print(intent.slug)
 }
+```
 
+### Get one entity
+
+| Method        | Params        | Return                    |
+| ------------- |:-------------:| :-------------------------|
+| get(name)     | name: String  | Entity: the first Entity matched  |
+
+```swift
 /**
-Method called when the request failed
+Method called when the request was successful
 
-- parameter error: error returned from the Recast API
+- parameter response: the response returned from the Recast API
 
 - returns: void
 */
-func recastRequestError(error : NSError)
+func recastRequestDone(_ response : Response)
 {
-    print("Delegate Error : \(error)")
+    let location = response.get('location')
 }
 ```
 
-### Response
+### Get all entities matching name
 
-Once you made the request to the API, you receice a response. Response contains an array of intents sorted by probability and an array of the sentences you sent through the `textRequest` method.
+| Method        | Params        | Return                    |
+| ------------- |:-------------:| :-------------------------|
+| all(name)     | name: String  | Array[Entity]: all the Entities matched  |
+
 ```swift
-public class Response
+/**
+Method called when the request was successful
+
+- parameter response: the response returned from the Recast API
+
+- returns: void
+*/
+func recastRequestDone(_ response : Response)
 {
-    public var source : String?
-    public var intents : [String]?
-    public var sentences : [Sentence]?
-    public var language : String?
-    public var version : String?
-    public var timestamp : String?
-    public var status : Int?
-    public var raw : [String : AnyObject]?
+    let locations = response.all('location')
 }
 ```
 
-### Sentence
+### Act helper
 
-A Sentence contains the following attributes and the object `Entities`
+| Method        | Params | Return                                  |
+| ------------- |-------:| :---------------------------------------|
+| isAssert()    |        | Bool: wheither or not the act is an assertion |
+| isCommand()   |        | Bool: wheither or not the act is a command    |
+| isWhQuery()   |        | Bool: wheither or not the act is a wh-query   |
+| isYnQuery()   |        | Bool: wheither or not the act is a yn-query   |
+
+### Type helper
+
+| Method           | Params | Return                                                     |
+| ---------------- |-------:| :----------------------------------------------------------|
+| isAbbreviation() |        | Bool: wheither or not the sentence is asking for an abbreviation |
+| isEntity()       |        | Bool: wheither or not the sentence is asking for an entity       |
+| isDescription()  |        | Bool: wheither or not the sentence is asking for a description   |
+| isHuman()        |        | Bool: wheither or not the sentence is asking for a human         |
+| isLocation()     |        | Bool: wheither or not the sentence is asking for a location      |
+| isNumber()       |        | Bool: wheither or not the sentence is asking for a number        |
+
+### Sentiment helper
+
+| Method        | Params | Return                                    |
+| ------------- |-------:| :-----------------------------------------|
+| isVPositive()  |        | Bool: wheither or not the sentiment is very positive |
+| isPositive()  |        | Bool: wheither or not the sentiment is positive |
+| isNeutral()   |        | Bool: wheither or not the sentiment is neutral  |
+| isNegative()  |        | Bool: wheither or not the sentiment is negative |
+| isVNegative()  |        | Bool: wheither or not the sentiment is very negative |
+
+### Attributes
+
+Each of the following methods corresponds to a Response attribute
+
+| Attributes  | Type                                                |
+| ----------- | :---------------------------------------------------|
+| raw         | String: the raw unparsed json response              |
+| type        | String: the type of the processed sentence          |
+| act         | String: the act of the processed sentence           |
+| sentiment   | String: the sentiment of the processed sentence     |
+| source      | String: the user input                              |
+| intents     | Array[object]: all the matched intents              |
+| status      | String: the status of the response                  |
+| version     | String: the version of the json                     |
+| timestamp   | String: the timestamp at the end of the processing  |
+
+### Attributes
+
+Each of the following methods corresponds to a Response attribute
+
+| Attributes  | Description                                                   |
+| ----------- |:--------------------------------------------------------------|
+| name        | String: the name of the entity                                |
+| raw         | String: the unparsed json value of the entity                 |
+
+In addition to those methods, more attributes are generated depending of the nature of the entity.
+The full list can be found there: [man.recast.ai](https://man.recast.ai/#list-of-entities)
+
 ```swift
-public class Sentence
+/**
+Method called when the request was successful
+
+- parameter response: the response returned from the Recast API
+
+- returns: void
+*/
+func recastRequestDone(_ response : Response)
 {
-    public var source : String?
-    public var type : String?
-    public var polarity : String?
-    public var action : String?
-    public var agent : String?
-    public var entities : Entities?
+    let location = response.get('location')
+    print(location["latitude"])
 }
 ```
 
-### Entities
+## Error
 
-All the entities implement the `CustomStringConvertible` protocol. See Apple documentation [CustomStringConvertible](https://developer.apple.com/library/watchos/documentation/Swift/Reference/Swift_CustomStringConvertible_Protocol/index.html) for more information.
-This is the list of the current entities we detect.
-
-```swift
-public class Entities
-{
-    public var ages : [Age]?
-    public var cardinals : [Cardinal]?
-    public var colors : [Color]?
-    public var datetimes : [Datetime]?
-    public var distances : [Distance]?
-    public var durations : [Duration]?
-    public var emails : [Email]?
-    public var ips : [IP]?
-    public var jobs : [Job]?
-    public var languages : [Language]?
-    public var locations : [Location]?
-    public var masses : [Mass]?
-    public var miscs : [Misc]?
-    public var moneys : [Money]?
-    public var nationalities : [Nationality]?
-    public var numbers : [Number]?
-    public var ordinals : [Ordinal]?
-    public var organizations : [Organization]?
-    public var percents : [Percent]?
-    public var persons : [Person]?
-    public var pronouns : [Pronoun]?
-    public var sets : [Set]?
-    public var sorts : [Sort]?
-    public var speeds : [Speed]?
-    public var temperatures : [Temperature]?
-    public var urls : [Url]?
-    public var volumes : [Volume]?
-    public var customs : [Custom]?
-}
-```
-
-You can print a description of the entity using the description method :
-```swift
-public var description: String
-{
-    return "Custom(value : \(value), raw : \(raw))"
-}
-```
-
-* **Accessing Entities**
-
-You can access `ages` entities from the first sentence this way :
-```swift
-response.sentences![0].entities?.ages
-```
-
-* **Accessing Custom Entities**
-
-If you want to get custom entities you can do it this way : 
-```swift
-print(response.sentences![0].entities?.custom)
-```
-Output :
-```swift
-Optional(["movie": [Custom(value : star wars 8, raw : Star Wars 8)]])
-```
-
-If you want to access the array of a specific custom entity you can do it with its key:
-```swift
-print(response.sentences![0].entities?.custom!["movie"]
-```
-Output :
-```swift
-Optional([Custom(value : star wars 8, raw : Star Wars 8)])
-```
-
-### Error
-
-We will call `recastRequestError` with NSError as parameter.
+We will call `recastRequestError` with Error as parameter.
 For more information about Recast Errors check out our [man#error](https://man.recast.ai/#request-text)
 
 ## More
@@ -268,7 +292,7 @@ You can follow us on Twitter at [@recastai](https://twitter.com/recastai) for up
 
 RecastAI is available under the MIT license.
 
-Copyright (c) 2016 RecastAI
+Copyright (c) [2016] [Recast.AI](https://recast.ai)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

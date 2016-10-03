@@ -14,9 +14,9 @@ RecastAIClient class handling request to the API
  */
 public class RecastAIClient
 {
-    static fileprivate let url : String = "https://api.recast.ai/v1/request"
-    static fileprivate let url_voice : String = "ws://api.recast.ai/v1/request"
-    fileprivate let token : String
+    static fileprivate let url : String = "https://api.recast.ai/v2/request"
+    static fileprivate let url_voice : String = "ws://api.recast.ai/v2/request"
+    fileprivate var token : String
     fileprivate let language : String?
     
     /**
@@ -43,8 +43,12 @@ public class RecastAIClient
      
      - returns: void
      */
-    public func textRequest(_ request : String, lang: String? = nil, successHandler: @escaping (Response) -> Void, failureHandle: @escaping (Error) -> Void)
+    public func textRequest(_ request : String, token : String? = nil, lang: String? = nil, successHandler: @escaping (Response) -> Void, failureHandle: @escaping (Error) -> Void)
     {
+        if let tkn = token
+        {
+            self.token = token!
+        }
         let headers = ["Authorization" : "Token " + self.token]
         var param = ["text" : request]
         if let ln = lang
@@ -77,7 +81,11 @@ public class RecastAIClient
      
      - returns: void
      */
-    public func voiceRequest(_ audioFileURL: URL, lang: String? = nil, successHandler: @escaping (Response) -> Void, failureHandle: @escaping (Error) -> Void) {
+    public func fileRequest(_ audioFileURL: URL, token : String? = nil, lang: String? = nil, successHandler: @escaping (Response) -> Void, failureHandle: @escaping (Error) -> Void) {
+        if let tkn = token
+        {
+            self.token = token!
+        }
         let headers = ["Authorization": "Token " + self.token]
         Alamofire.upload(multipartFormData: { multipartFormData in
         multipartFormData.append(audioFileURL, withName: "voice")
