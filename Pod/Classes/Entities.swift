@@ -86,7 +86,7 @@ open class Entities
             {
                 self.ages?.append(Age(agDecoder))
             }
-            customs?.removeValueForKey("age")
+            customs?.removeValue(forKey: "age")
         }
         if let crdnl = decoder["cardinal"].array
         {
@@ -95,7 +95,7 @@ open class Entities
             {
                 self.cardinals?.append(Cardinal(crdnlDecoder))
             }
-            customs?.removeValueForKey("cardinal")
+            customs?.removeValue(forKey: "cardinal")
         }
         if let clr = decoder["color"].array
         {
@@ -104,7 +104,7 @@ open class Entities
             {
                 self.colors?.append(Color(clrDecoder))
             }
-            customs?.removeValueForKey("color")
+            customs?.removeValue(forKey: "color")
         }
         if let dttm = decoder["datetime"].array
         {
@@ -113,7 +113,7 @@ open class Entities
             {
                 self.datetimes?.append(Datetime(dttmDecoder))
             }
-            customs?.removeValueForKey("datetime")
+            customs?.removeValue(forKey: "datetime")
         }
         if let dstnc = decoder["distance"].array
         {
@@ -122,7 +122,7 @@ open class Entities
             {
                 self.distances?.append(Distance(dstncDecoder))
             }
-            customs?.removeValueForKey("distance")
+            customs?.removeValue(forKey: "distance")
         }
         if let drtn = decoder["duration"].array
         {
@@ -131,7 +131,7 @@ open class Entities
             {
                 self.durations?.append(Duration(drtnDecoder))
             }
-            customs?.removeValueForKey("duration")
+            customs?.removeValue(forKey: "duration")
         }
         if let eml = decoder["email"].array
         {
@@ -140,7 +140,7 @@ open class Entities
             {
                 self.emails?.append(Email(emlDecoder))
             }
-            customs?.removeValueForKey("email")
+            customs?.removeValue(forKey: "email")
         }
         if let ip = decoder["ip"].array
         {
@@ -149,7 +149,7 @@ open class Entities
             {
                 self.ips?.append(IP(ipDecoder))
             }
-            customs?.removeValueForKey("ip")
+            customs?.removeValue(forKey: "ip")
         }
         if let jb = decoder["job"].array
         {
@@ -158,7 +158,7 @@ open class Entities
             {
                 self.jobs?.append(Job(jbDecoder))
             }
-            customs?.removeValueForKey("job")
+            customs?.removeValue(forKey: "job")
         }
         if let lngg = decoder["language"].array
         {
@@ -167,7 +167,7 @@ open class Entities
             {
                 self.languages?.append(Language(lnggDecoder))
             }
-            customs?.removeValueForKey("language")
+            customs?.removeValue(forKey: "language")
         }
         if let lctn = decoder["location"].array
         {
@@ -176,7 +176,7 @@ open class Entities
             {
                 self.locations?.append(Location(lctnDecoder))
             }
-            customs?.removeValueForKey("location")
+            customs?.removeValue(forKey: "location")
         }
         if let mss = decoder["mass"].array
         {
@@ -185,7 +185,7 @@ open class Entities
             {
                 self.masses?.append(Mass(mssDecoder))
             }
-            customs?.removeValueForKey("mass")
+            customs?.removeValue(forKey: "mass")
         }
         if let msc = decoder["misc"].array
         {
@@ -194,7 +194,7 @@ open class Entities
             {
                 self.miscs?.append(Misc(mscDecoder))
             }
-            customs?.removeValueForKey("misc")
+            customs?.removeValue(forKey: "misc")
         }
         if let mn = decoder["money"].array
         {
@@ -203,7 +203,7 @@ open class Entities
             {
                 self.moneys?.append(Money(mnDecoder))
             }
-            customs?.removeValueForKey("money")
+            customs?.removeValue(forKey: "money")
         }
         if let ntnlt = decoder["nationality"].array
         {
@@ -212,7 +212,7 @@ open class Entities
             {
                 self.nationalities?.append(Nationality(ntnltDecoder))
             }
-            customs?.removeValueForKey("nationality")
+            customs?.removeValue(forKey: "nationality")
         }
         if let nmbr = decoder["number"].array
         {
@@ -221,7 +221,7 @@ open class Entities
             {
                 self.numbers?.append(Number(nmbrDecoder))
             }
-            customs?.removeValueForKey("number")
+            customs?.removeValue(forKey: "number")
         }
         if let ordnl = decoder["ordinal"].array
         {
@@ -230,7 +230,7 @@ open class Entities
             {
                 self.ordinals?.append(Ordinal(ordnlDecoder))
             }
-            customs?.removeValueForKey("ordinal")
+            customs?.removeValue(forKey: "ordinal")
         }
         if let orgnztn = decoder["organization"].array
         {
@@ -239,7 +239,7 @@ open class Entities
             {
                 self.organizations?.append(Organization(orgnztnDecoder))
             }
-            customs?.removeValueForKey("organization")
+            customs?.removeValue(forKey: "organization")
         }
         if let prcnt = decoder["percent"].array
         {
@@ -248,7 +248,7 @@ open class Entities
             {
                 self.percents?.append(Percent(prcntDecoder))
             }
-            customs?.removeValueForKey("percent")
+            customs?.removeValue(forKey: "percent")
         }
         if let prsn = decoder["person"].array
         {
@@ -257,7 +257,7 @@ open class Entities
             {
                 self.persons?.append(Person(prsnDecoder))
             }
-            customs?.removeValueForKey("person")
+            customs?.removeValue(forKey: "person")
         }
         if let prnn = decoder["pronoun"].array
         {
@@ -266,7 +266,7 @@ open class Entities
             {
                 self.pronouns?.append(Pronoun(prnnDecoder))
             }
-            customs?.removeValueForKey("pronoun")
+            customs?.removeValue(forKey: "pronoun")
         }
         if let st = decoder["set"].array
         {
@@ -275,7 +275,7 @@ open class Entities
             {
                 self.sets?.append(Set(stDecoder))
             }
-            customs?.removeValueForKey("set")
+            customs?.removeValue(forKey: "set")
         }
         if let srt = decoder["sort"].array
         {
@@ -284,7 +284,7 @@ open class Entities
             {
                 self.sorts?.append(Sort(srtDecoder))
             }
-            customs?.removeValueForKey("sort")
+            customs?.removeValue(forKey: "sort")
         }
         if let spd = decoder["speed"].array
         {
@@ -293,7 +293,7 @@ open class Entities
             {
                 self.speeds?.append(Speed(spdDecoder))
             }
-            customs?.removeValueForKey("speed")
+            customs?.removeValue(forKey: "speed")
         }
         if let tmprtr = decoder["temperature"].array
         {
@@ -302,7 +302,7 @@ open class Entities
             {
                 self.temperatures?.append(Temperature(tmprtrDecoder))
             }
-            customs?.removeValueForKey("temperature")
+            customs?.removeValue(forKey: "temperature")
         }
         if let url = decoder["url"].array
         {
@@ -311,7 +311,7 @@ open class Entities
             {
                 self.urls?.append(Url(urlDecoder))
             }
-            customs?.removeValueForKey("url")
+            customs?.removeValue(forKey: "url")
         }
         if let vlm = decoder["volume"].array
         {
@@ -320,7 +320,7 @@ open class Entities
             {
                 self.volumes?.append(Volume(vlmDecoder))
             }
-            customs?.removeValueForKey("volume")
+            customs?.removeValue(forKey: "volume")
         }
         if customs?.isEmpty == false
         {

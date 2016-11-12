@@ -36,16 +36,13 @@ class AudioFile
     func recordAudio()
     {
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-        
-        let recordingName = "my_audio.wav"
-        let pathArray = [dirPath, recordingName]
-        let filePath = URL.fileURL(withPathComponents: pathArray)
+		let filePath = URL(fileURLWithPath: "\(dirPath)/my_audio.wav")
         self.path = filePath
         
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
         
-        try! audioRecorder = AVAudioRecorder(url: filePath!, settings: [:])
+        try! audioRecorder = AVAudioRecorder(url: filePath, settings: [:])
         audioRecorder.isMeteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()

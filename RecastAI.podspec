@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "RecastAI"
-s.version          = "2.1.1"
+s.version          = "2.2"
 s.summary          = "Recast.AI Official iOS SDK in Swift"
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ s.author           = { "Pierre-Edouard Lieb" => "pierre-edouard.lieb@recast.ai" 
 s.source           = { :git => "https://github.com/RecastAI/SDK-ios.git", :tag => s.version.to_s }
 s.social_media_url = 'https://twitter.com/recastai'
 
-s.platform     = :ios, '8.0'
+s.platform     = :ios, '10.0'
 s.requires_arc = true
 
 s.source_files = 'Pod/Classes/**/*'

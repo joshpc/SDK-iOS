@@ -56,28 +56,22 @@ open class RecastAIClient
         {
             param = ["text" : request, "language" : self.language!]
         }
+		
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        Alamofire.request(.POST, self.url, parameters: param, headers: ["Authorization" : "Token " + self.token])
-            .response { _, _, _, error in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                if let error = error {
-                    dispatch_async(dispatch_get_main_queue())
-                    {
-                        debugPrint("\(error)")
-                        self.delegate?.recastRequestError(error)
-                    }
-                }
-        }
-            .responseJSON { response in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                dispatch_async(dispatch_get_main_queue())
-                {
-                    let res = Results(JSONDecoder(response.data!))
-                    let json = try! NSJSONSerialization.JSONObjectWithData(response.data!,  options:NSJSONReadingOptions.MutableContainers) as! [String : AnyObject]
-                    res.results?.raw = json["results"] as? [String : AnyObject]
-                    self.delegate?.recastRequestDone(res.results!)
-                }
-        }
+		Alamofire.request(url, method: .post, parameters: param, encoding: URLEncoding.default, headers: ["Authorization" : "Token " + self.token]).responseJSON { response in
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+			
+			if let error = response.result.error as? NSError {
+				debugPrint("\(error)")
+				self.delegate?.recastRequestError(error: error)
+			}
+			else {
+				let res = Results(JSONDecoder(response.data!))
+				let json = try! JSONSerialization.jsonObject(with: response.data!, options:.mutableContainers) as! [String : AnyObject]
+				res.results?.raw = json["results"] as? [String : AnyObject]
+				self.delegate?.recastRequestDone(response: res.results!)
+			}
+		}
     }
  
     /**
@@ -104,28 +98,22 @@ open class RecastAIClient
         {
             parameters = ["language" : self.language!]
         }
-        Alamofire.upload(
-            .POST,
-            self.url,
-            headers: headers,
-            multipartFormData: { multipartFormData in
-                multipartFormData.appendBodyPart(fileURL: self.audio.path, name: "voice")
-            },
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .Success(let upload, _, _):
-                    upload.responseJSON { response in
-                        debugPrint(response)
-                        let res = Results(JSONDecoder(response.data!))
-                        self.delegate?.recastRequestDone(res.results!)
-                    }
-                case .Failure(let encodingError):
-                    print(encodingError)
-                    let er = encodingError as NSError
-                    self.delegate?.recastRequestError(er)
-                }
-            }
-        )
-    }
+		Alamofire.upload(multipartFormData: { (multipartFormData: MultipartFormData) in
+			multipartFormData.append(self.audio.path, withName: "voice")
+		}, to: url) { encodingResult in
+			switch encodingResult {
+			case .success(let upload, _, _):
+				upload.responseJSON { response in
+					debugPrint(response)
+					let res = Results(JSONDecoder(response.data!))
+					self.delegate?.recastRequestDone(response: res.results!)
+				}
+			case .failure(let encodingError):
+				print(encodingError)
+				let er = encodingError as NSError
+				self.delegate?.recastRequestError(error: er)
+			}
+		}
+	}
 }
 
