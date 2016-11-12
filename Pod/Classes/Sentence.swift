@@ -14,14 +14,14 @@ import JSONJoy
  
  Sentence sent to through the request
  */
-public class Sentence
+open class Sentence
 {
-    public var source : String?
-    public var type : String?
-    public var polarity : String?
-    public var action : String?
-    public var agent : String?
-    public var entities : Entities?
+    open var source : String?
+    open var type : String?
+    open var polarity : String?
+    open var action : String?
+    open var agent : String?
+    open var entities : Entities?
         
     /**
      Init

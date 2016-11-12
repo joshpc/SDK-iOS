@@ -22,7 +22,7 @@ First here is some example JSON we have to parse.
     "last_name": "Smith",
     "age": 25,
     "address": {
-        "id": 1
+        "id": 1,
         "street_address": "2nd Street",
         "city": "Bakersfield",
         "state": "CA",
@@ -36,22 +36,22 @@ We want to translate that JSON to these Swift objects:
 
 ```swift
 struct Address {
-    var objID: Int?
-    var streetAddress: String?
-    var city: String?
-    var state: String?
-    var postalCode: String?
+    let objID: Int?
+    let streetAddress: String?
+    let city: String?
+    let state: String?
+    let postalCode: String?
     init() {
 
     }
 }
 
 struct User {
-    var objID: Int?
-    var firstName: String?
-    var lastName: String?
-    var age: Int?
-    var address = Address()
+    let objID: Int?
+    let firstName: String?
+    let lastName: String?
+    let age: Int?
+    let address = Address()
     init() {
 
     }
@@ -80,11 +80,11 @@ JSONJoy makes this much simpler. We have our Swift objects implement the JSONJoy
 
 ```swift
 struct Address : JSONJoy {
-    var objID: Int
-    var streetAddress: String
-    var city: String
-    var state: String
-    var postalCode: String
+    let objID: Int
+    let streetAddress: String
+    let city: String
+    let state: String
+    let postalCode: String
 
     init(_ decoder: JSONDecoder) throws {
         objID = try decoder["id"].getInt()
@@ -96,11 +96,11 @@ struct Address : JSONJoy {
 }
 
 struct User : JSONJoy {
-    var objID: Int
-    var firstName: String
-    var lastName: String
-    var age: Int
-    var address: Address
+    let objID: Int
+    let firstName: String
+    let lastName: String
+    let age: Int
+    let address: Address
 
     init(_ decoder: JSONDecoder) throws {
         objID = try decoder["id"].getInt()
@@ -138,14 +138,14 @@ firstName = decoder[5]["wrongKey"]["MoreWrong"].string
 {
 	"addresses": [
 	{
-        "id": 1
+        "id": 1,
         "street_address": "2nd Street",
         "city": "Bakersfield",
         "state": "CA",
         "postal_code": 93309
      },
      {
-        "id": 2
+        "id": 2,
         "street_address": "2nd Street",
         "city": "Dallas",
         "state": "TX",
@@ -156,13 +156,15 @@ firstName = decoder[5]["wrongKey"]["MoreWrong"].string
 
 ```swift
 struct Addresses : JSONJoy {
-    var addresses = [Address]()
+    let addresses: [Address]
 	
     init(_ decoder: JSONDecoder) {
 		guard let addrs = decoder["addresses"].array else {throw JSONError.WrongType}
+		var collect = [Address]()
 		for addrDecoder in addrs {
-			addresses.append(Address(addrDecoder))
+			collect.append(Address(addrDecoder))
 		}
+		addresses = collect
     }
 }
 ```
@@ -208,7 +210,7 @@ To use JSONJoy-Swift in your project add the following 'Podfile' to your project
 	platform :ios, '8.0'
 	use_frameworks!
 
-	pod 'JSONJoy-Swift', '~> 2.0.0'
+	pod 'JSONJoy-Swift', '~> 2.0.1'
 
 Then run:
 

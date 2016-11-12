@@ -40,36 +40,36 @@ import JSONJoy
 - custom
  */
 
-public class Entities
+open class Entities
 {
-    public var ages : [Age]?
-    public var cardinals : [Cardinal]?
-    public var colors : [Color]?
-    public var datetimes : [Datetime]?
-    public var distances : [Distance]?
-    public var durations : [Duration]?
-    public var emails : [Email]?
-    public var ips : [IP]?
-    public var languages : [Language]?
-    public var jobs : [Job]?
-    public var locations : [Location]?
-    public var masses : [Mass]?
-    public var miscs : [Misc]?
-    public var moneys : [Money]?
-    public var nationalities : [Nationality]?
-    public var numbers : [Number]?
-    public var ordinals : [Ordinal]?
-    public var organizations : [Organization]?
-    public var percents : [Percent]?
-    public var persons : [Person]?
-    public var pronouns : [Pronoun]?
-    public var sets : [Set]?
-    public var sorts : [Sort]?
-    public var speeds : [Speed]?
-    public var temperatures : [Temperature]?
-    public var urls : [Url]?
-    public var volumes : [Volume]?
-    public var customs : [String:[Custom]]?
+    open var ages : [Age]?
+    open var cardinals : [Cardinal]?
+    open var colors : [Color]?
+    open var datetimes : [Datetime]?
+    open var distances : [Distance]?
+    open var durations : [Duration]?
+    open var emails : [Email]?
+    open var ips : [IP]?
+    open var languages : [Language]?
+    open var jobs : [Job]?
+    open var locations : [Location]?
+    open var masses : [Mass]?
+    open var miscs : [Misc]?
+    open var moneys : [Money]?
+    open var nationalities : [Nationality]?
+    open var numbers : [Number]?
+    open var ordinals : [Ordinal]?
+    open var organizations : [Organization]?
+    open var percents : [Percent]?
+    open var persons : [Person]?
+    open var pronouns : [Pronoun]?
+    open var sets : [Set]?
+    open var sorts : [Sort]?
+    open var speeds : [Speed]?
+    open var temperatures : [Temperature]?
+    open var urls : [Url]?
+    open var volumes : [Volume]?
+    open var customs : [String:[Custom]]?
     
     /**
      Init

@@ -13,7 +13,7 @@ import Alamofire
 /**
  RecastAIClient class handling request to the API
  */
-public class RecastAIClient
+open class RecastAIClient
 {
     private let url : String = "https://api.recast.ai/v1/request"
     private let url_voice : String = "ws://api.recast.ai/v1/request"
@@ -45,7 +45,7 @@ public class RecastAIClient
      
      - returns: void
      */
-    public func textRequest(request : String, lang: String? = nil)
+    open func textRequest(_ request : String, lang: String? = nil)
     {
         var param = ["text" : request]
         if let ln = lang
@@ -56,7 +56,7 @@ public class RecastAIClient
         {
             param = ["text" : request, "language" : self.language!]
         }
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Alamofire.request(.POST, self.url, parameters: param, headers: ["Authorization" : "Token " + self.token])
             .response { _, _, _, error in
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -85,7 +85,7 @@ public class RecastAIClient
      
      - returns: void
      */
-    public func startStreamRequest()
+    open func startStreamRequest()
     {
         audio.recordAudio()
     }
@@ -95,7 +95,7 @@ public class RecastAIClient
      
      - returns: void
      */
-    public func stopStreamRequest()
+    open func stopStreamRequest()
     {
         audio.stopAudio()
         let headers = ["Authorization": "Token " + self.token]

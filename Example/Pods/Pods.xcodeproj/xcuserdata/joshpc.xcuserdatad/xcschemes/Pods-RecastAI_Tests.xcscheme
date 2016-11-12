@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "94F109FB9592CF90D2FFE9F12FBF1E1F"
-               BuildableName = "Recast.AI.bundle"
-               BlueprintName = "RecastAI-Recast.AI"
+               BlueprintIdentifier = "EA7C09EEA17C078CEE35339FCF90C3CD"
+               BuildableName = "Pods_RecastAI_Tests.framework"
+               BlueprintName = "Pods-RecastAI_Tests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "94F109FB9592CF90D2FFE9F12FBF1E1F"
-            BuildableName = "Recast.AI.bundle"
-            BlueprintName = "RecastAI-Recast.AI"
+            BlueprintIdentifier = "EA7C09EEA17C078CEE35339FCF90C3CD"
+            BuildableName = "Pods_RecastAI_Tests.framework"
+            BlueprintName = "Pods-RecastAI_Tests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "94F109FB9592CF90D2FFE9F12FBF1E1F"
-            BuildableName = "Recast.AI.bundle"
-            BlueprintName = "RecastAI-Recast.AI"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

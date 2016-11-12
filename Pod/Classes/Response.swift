@@ -14,16 +14,16 @@ import JSONJoy
  
 Return from the Recast API call
  */
-public class Response
+open class Response
 {
-    public var source : String?
-    public var intents : [String]?
-    public var sentences : [Sentence]?
-    public var language : String?
-    public var version : String?
-    public var timestamp : String?
-    public var status : Int?
-    public var raw : [String : AnyObject]?
+    open var source : String?
+    open var intents : [String]?
+    open var sentences : [Sentence]?
+    open var language : String?
+    open var version : String?
+    open var timestamp : String?
+    open var status : Int?
+    open var raw : [String : AnyObject]?
     
     /**
      Init

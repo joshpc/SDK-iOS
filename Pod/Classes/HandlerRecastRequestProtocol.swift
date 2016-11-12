@@ -20,7 +20,7 @@ public protocol HandlerRecastRequestProtocol : class
      
      - returns: void
      */
-    func recastRequestDone(response : Response)
+    func recastRequestDone(_ response : Response)
     
     /**
      Method called when the request failed
@@ -29,5 +29,5 @@ public protocol HandlerRecastRequestProtocol : class
      
      - returns: void
      */
-    func recastRequestError(error : NSError)
+    func recastRequestError(_ error : NSError)
 }

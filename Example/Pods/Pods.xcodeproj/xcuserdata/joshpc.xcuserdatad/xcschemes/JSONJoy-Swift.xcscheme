@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "44AF7D0689D8731D470A7010E723AD0D"
-               BuildableName = "Pods_RecastAI_Tests.framework"
-               BlueprintName = "Pods-RecastAI_Tests"
+               BlueprintIdentifier = "8AD42873602CCA21268367ADF5C16A6A"
+               BuildableName = "JSONJoy.framework"
+               BlueprintName = "JSONJoy-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "44AF7D0689D8731D470A7010E723AD0D"
-            BuildableName = "Pods_RecastAI_Tests.framework"
-            BlueprintName = "Pods-RecastAI_Tests"
+            BlueprintIdentifier = "8AD42873602CCA21268367ADF5C16A6A"
+            BuildableName = "JSONJoy.framework"
+            BlueprintName = "JSONJoy-Swift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
