@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (3.5.1)
+  - Alamofire (4.0.1)
   - JSONJoy-Swift (2.1.0)
-  - Nimble (3.2.0)
+  - Nimble (5.1.1)
   - Quick (0.10.0)
   - RecastAI (2.1.1):
     - Alamofire
@@ -10,8 +10,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - JSONJoy-Swift
-  - Nimble (~> 3.0)
-  - Quick (~> 0.8)
+  - Nimble
+  - Quick
   - RecastAI (from `../`)
 
 EXTERNAL SOURCES:
@@ -19,12 +19,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   JSONJoy-Swift: aad55442c58187579eea0790080041b3ba255f05
-  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
+  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
   RecastAI: fbd30f5ee187e578613d75089054217f073d5d38
 
-PODFILE CHECKSUM: de580c1e876c3a300a45e893ecf063e84761345c
+PODFILE CHECKSUM: 40bf6d7f0e384c3edd77db6728483cea2f8b2741
 
 COCOAPODS: 1.1.0.rc.3
